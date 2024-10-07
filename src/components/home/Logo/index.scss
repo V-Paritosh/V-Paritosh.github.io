@@ -1,0 +1,50 @@
+.logo-container{
+  z-index: 0;
+  width: 400px;
+  height: 609px;
+  position: absolute;
+  top: 0;
+  right: 15%;
+  bottom: 0;
+  left: auto;
+  margin: auto;
+
+  svg {
+    width: 100%;
+    height: auto;
+    bottom: 0;
+    transform: rotateZ(-25deg) !important;
+    z-index: 0;
+  }
+
+  .solid-logo{
+    position: absolute;
+    top: auto;
+    right: auto;
+    bottom: auto;
+    left: 0;
+    margin: auto;
+    width: 100%;
+    opacity: 0;
+    transition: opacity 2s ease-in;// Time it takes for the transition to began
+    transform: rotateZ(-25deg) !important;
+    z-index: 1;
+  }
+}
+
+.svg-container path {
+  stroke: #ffd300;
+  stroke-width: 1px;
+  fill: none;
+  stroke-dasharray: 6000; /* Adjust based on the path length */
+  stroke-dashoffset: 6000;
+  animation: draw 25s forwards; /* 3-second draw animation */
+  
+}
+
+/* Keyframes for the SVG border drawing */
+@keyframes draw {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
