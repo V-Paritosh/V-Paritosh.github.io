@@ -107,3 +107,30 @@
     }
   }
 }
+
+.contact-page {
+  display: flex;
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
+  
+  .text-zone {
+    position: relative;
+    left: 0; /* Reset the left position */
+    top: 0; /* Reset the top position */
+    transform: none; /* Remove transform */
+    width: 50%; /* Adjust width to make sure form fits well */
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Center content vertically */
+    align-items: center; /* Center content horizontally */
+    margin: 0 auto; /* Center content horizontally */
+  }
+
+  h1 {
+    text-align: center;
+  }
+
+  p {
+    text-align: center;
+  } 
+}
