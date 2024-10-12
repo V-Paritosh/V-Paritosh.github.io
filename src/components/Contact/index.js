@@ -3,7 +3,7 @@ import './index.scss'
 import AnimatedLetters from '../AnimatedLetters'
 import { useEffect, useRef, useState } from 'react'
 import emailjs from '@emailjs/browser'
-import { MapContainer, Marker, Popup, TileLayer } from 'react-leaflet'
+//import { MapContainer, Marker, Popup, TileLayer } from 'react-leaflet'
 
 const Contact = () => {
   const [letterClass, setLetterClass] = useState('text-animate')
@@ -85,7 +85,7 @@ const Contact = () => {
             </form>
           </div>
         </div>
-        <div className="info-map">
+        {/* <div className="info-map">
           Paritosh Vaghasiya,
           <br />
           United States,
@@ -105,7 +105,7 @@ const Contact = () => {
               </Popup>
             </Marker>
           </MapContainer>
-        </div>
+        </div> */}
       </div>
       <Loader type="pacman" />
     </>
