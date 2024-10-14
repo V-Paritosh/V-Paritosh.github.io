@@ -83,6 +83,13 @@
       }
     }
 
+    a.portfolio-link {
+      &:after {
+        content: "PORTFOLIO";
+        font-size: 7px;
+      }
+    }
+
     a.contact-link {
       &:after {
         content: "CONTACT";
