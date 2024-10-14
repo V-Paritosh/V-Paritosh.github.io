@@ -1,3 +1,4 @@
+import Loader from 'react-loaders'
 import './index.scss'
 import AnimatedLetters from '../AnimatedLetters'
 import { useEffect, useRef, useState } from 'react'
@@ -106,6 +107,7 @@ const Contact = () => {
           </MapContainer>
         </div> */}
       </div>
+      <Loader type="pacman" />
     </>
   )
 }

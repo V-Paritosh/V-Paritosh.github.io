@@ -10,6 +10,7 @@ import {
   faJsSquare,
   faReact,
 } from '@fortawesome/free-brands-svg-icons'
+import Loader from 'react-loaders'
 
 const About = () => {
   const [letterClass, setLetterClass] = useState('text-animate')
@@ -60,6 +61,7 @@ const About = () => {
           </div>
         </div>
       </div>
+      <Loader type='pacman' />
     </>
   )
 }

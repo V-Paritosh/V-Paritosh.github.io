@@ -1,3 +1,4 @@
+import Loader from 'react-loaders'
 import './index.scss'
 import AnimatedLetters from '../AnimatedLetters'
 import { useEffect, useState } from 'react'
@@ -50,6 +51,7 @@ const Portfolio = () => {
         </h1>
         <div>{renderPortfolio(portfolioData.portfolio)}</div>
       </div>
+      <Loader type="pacman" />
     </>
   )
 }
