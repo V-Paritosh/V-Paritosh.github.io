@@ -85,27 +85,6 @@ const Contact = () => {
             </form>
           </div>
         </div>
-        {/* <div className="info-map">
-          Paritosh Vaghasiya,
-          <br />
-          United States,
-          <br />
-          Schaumburg
-          <br />
-          Illinois, 60193
-          <br />
-          <span>Paritoshv08@gmail.com</span>
-        </div>
-        <div className="map-wrap">
-          <MapContainer center={[42.016281, -88.080002]} zoom={12}>
-            <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
-            <Marker position={[42.016281, -88.080002]}>
-              <Popup>
-                A hacker lives here, come and hack :) <br />
-              </Popup>
-            </Marker>
-          </MapContainer>
-        </div> */}
       </div>
       <Loader type="line-scale" />
     </>
