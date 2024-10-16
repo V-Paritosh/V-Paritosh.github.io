@@ -67,7 +67,7 @@
       font-size: 18px;
       position: absolute;
       margin-top: -10px;
-      left: -10;
+      left: -10px;
       opacity: 0.6;
       line-height: 18px;
     }
@@ -134,5 +134,37 @@
 
   p {
     text-align: center;
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .page {
+    position: initial;
+  }
+
+  .container {
+    position: initial;
+    height: auto;
+    min-height: auto;
+
+    &.about-page,
+    &.contact-page,
+    &.portfolio-page {
+      .text-zone {
+        position: initial;
+        transform: none;
+        width: 100%;
+        display: block;
+        padding: 20px;
+        box-sizing: border-box;
+      }
+    }
+
+    h1 {
+      &::before,
+      &::after {
+        content: '';
+      }
+    }
   }
 }
