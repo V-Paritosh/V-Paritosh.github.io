@@ -135,6 +135,7 @@
 
   p {
     text-align: center;
+    margin: 0 auto;
   }
 }
 
@@ -147,6 +148,7 @@
     position: initial;
     height: auto;
     min-height: auto;
+    min-width: 100%;
 
     &.about-page,
     &.contact-page,
