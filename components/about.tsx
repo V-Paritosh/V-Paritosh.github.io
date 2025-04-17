@@ -1,10 +1,10 @@
-import Image from "next/image"
-import { CheckCircle, GraduationCap } from "lucide-react"
-import AnimatedSection from "./animated-section"
+import Image from "next/image";
+import { CheckCircle, GraduationCap, BookOpen } from "lucide-react";
+import AnimatedSection from "./animated-section";
 
 interface SkillCategory {
-  name: string
-  skills: string[]
+  name: string;
+  skills: string[];
 }
 
 const skillCategories: SkillCategory[] = [
@@ -26,25 +26,40 @@ const skillCategories: SkillCategory[] = [
   },
   {
     name: "Security",
-    skills: ["Penetration Testing", "Cryptography", "Network Security", "OWASP", "Security Auditing"],
+    skills: [
+      "Penetration Testing",
+      "Cryptography",
+      "Network Security",
+      "OWASP",
+      "Security Auditing",
+    ],
   },
   {
     name: "AI & Data",
-    skills: ["Machine Learning", "TensorFlow", "PyTorch", "Data Analysis", "NLP"],
+    skills: [
+      "Machine Learning",
+      "TensorFlow",
+      "PyTorch",
+      "Data Analysis",
+      "NLP",
+    ],
   },
-]
+];
 
 const educationTimeline = [
   {
     degree: "Ph.D. in Computer Science",
     institution: "Stanford University",
+    location: "Stanford, CA",
     years: "2018 - 2022",
-    description: "Specialized in AI Security and Privacy-Preserving Machine Learning",
+    description:
+      "Specialized in AI Security and Privacy-Preserving Machine Learning",
     icon: <GraduationCap size={20} />,
   },
   {
     degree: "M.S. in Computer Science",
     institution: "MIT",
+    location: "Cambridge, MA",
     years: "2016 - 2018",
     description: "Focus on Cybersecurity and Distributed Systems",
     icon: <GraduationCap size={20} />,
@@ -52,11 +67,12 @@ const educationTimeline = [
   {
     degree: "B.S. in Computer Science",
     institution: "UC Berkeley",
+    location: "Berkeley, CA",
     years: "2012 - 2016",
     description: "Minor in Mathematics",
     icon: <GraduationCap size={20} />,
   },
-]
+];
 
 export default function About() {
   return (
@@ -92,31 +108,60 @@ export default function About() {
 
           {/* Bio */}
           <div className="lg:pl-8">
-            <AnimatedSection type="fade-slide" direction="left" delay={0.1} duration={0.3}>
-              <h3 className="text-2xl font-semibold mb-4 font-inter">Computer Scientist & Security Researcher</h3>
+            <AnimatedSection
+              type="fade-slide"
+              direction="left"
+              delay={0.1}
+              duration={0.3}
+            >
+              <h3 className="text-2xl font-semibold mb-4 font-inter">
+                Computer Scientist & Security Researcher
+              </h3>
             </AnimatedSection>
 
-            <AnimatedSection type="fade-slide" direction="left" delay={0.15} duration={0.3}>
+            <AnimatedSection
+              type="fade-slide"
+              direction="left"
+              delay={0.15}
+              duration={0.3}
+            >
               <p className="text-gray-300 mb-6 font-poppins font-light leading-relaxed">
-                I'm a passionate computer scientist with expertise in cybersecurity, artificial intelligence, and
-                full-stack development. With over 8 years of experience in the tech industry, I've worked on developing
-                secure systems, researching advanced security vulnerabilities, and building scalable applications.
+                I'm a passionate computer scientist with expertise in
+                cybersecurity, artificial intelligence, and full-stack
+                development. With over 8 years of experience in the tech
+                industry, I've worked on developing secure systems, researching
+                advanced security vulnerabilities, and building scalable
+                applications.
               </p>
             </AnimatedSection>
 
-            <AnimatedSection type="fade-slide" direction="left" delay={0.2} duration={0.3}>
+            <AnimatedSection
+              type="fade-slide"
+              direction="left"
+              delay={0.2}
+              duration={0.3}
+            >
               <p className="text-gray-300 mb-6 font-poppins font-light leading-relaxed">
-                My research focuses on the intersection of AI and security, exploring how machine learning can be used
-                to enhance security systems while also investigating potential vulnerabilities in AI models. I'm
-                committed to creating technology that is not only innovative but also secure and ethical.
+                My research focuses on the intersection of AI and security,
+                exploring how machine learning can be used to enhance security
+                systems while also investigating potential vulnerabilities in AI
+                models. I'm committed to creating technology that is not only
+                innovative but also secure and ethical.
               </p>
             </AnimatedSection>
 
-            <AnimatedSection type="fade-slide" direction="left" delay={0.25} duration={0.3}>
+            <AnimatedSection
+              type="fade-slide"
+              direction="left"
+              delay={0.25}
+              duration={0.3}
+            >
               <div className="grid grid-cols-2 gap-4 mb-6">
                 <div className="flex items-center">
                   <CheckCircle size={16} className="text-blue-400 mr-2" />
-                  <span className="text-gray-300 text-sm">Security Research</span>
+                  <span className="text-gray-300 text-sm">
+                    Security Research
+                  </span>
                 </div>
                 <div className="flex items-center">
                   <CheckCircle size={16} className="text-blue-400 mr-2" />
@@ -124,11 +169,15 @@ export default function About() {
                 </div>
                 <div className="flex items-center">
                   <CheckCircle size={16} className="text-blue-400 mr-2" />
-                  <span className="text-gray-300 text-sm">Full-Stack Engineering</span>
+                  <span className="text-gray-300 text-sm">
+                    Full-Stack Engineering
+                  </span>
                 </div>
                 <div className="flex items-center">
                   <CheckCircle size={16} className="text-blue-400 mr-2" />
-                  <span className="text-gray-300 text-sm">Technical Writing</span>
+                  <span className="text-gray-300 text-sm">
+                    Technical Writing
+                  </span>
                 </div>
               </div>
             </AnimatedSection>
@@ -154,7 +203,9 @@ export default function About() {
                 duration={0.3}
               >
                 <div className="bg-gray-900/50 border border-gray-800 rounded-lg p-6 hover:border-blue-400/30 transition-colors h-full">
-                  <h4 className="text-lg font-medium mb-4 text-blue-300">{category.name}</h4>
+                  <h4 className="text-lg font-medium mb-4 text-blue-300">
+                    {category.name}
+                  </h4>
                   <ul className="space-y-2">
                     {category.skills.map((skill, skillIndex) => (
                       <li key={skillIndex} className="flex items-center">
@@ -169,7 +220,7 @@ export default function About() {
           </div>
         </div>
 
-        {/* Education Timeline - Updated UI */}
+        {/* Education Timeline - Updated UI to match the image */}
         <div className="mt-20">
           <AnimatedSection type="fade-slide" direction="up" duration={0.3}>
             <h3 className="text-2xl font-semibold mb-12 text-center font-inter">
@@ -178,55 +229,122 @@ export default function About() {
           </AnimatedSection>
 
           <div className="relative max-w-5xl mx-auto">
-            {/* Timeline Line */}
-            <div className="absolute left-1/2 transform -translate-x-1/2 h-full w-0.5 bg-blue-400/30"></div>
+            {/* Desktop Timeline */}
+            <div className="hidden md:block">
+              {/* Timeline Line */}
+              <div className="absolute left-1/2 transform -translate-x-1/2 h-full w-0.5 bg-blue-400/30"></div>
 
-            {/* Timeline Items */}
-            <div className="space-y-16">
-              {educationTimeline.map((item, index) => (
-                <AnimatedSection
-                  key={index}
-                  type="fade-slide"
-                  direction={index % 2 === 0 ? "right" : "left"}
-                  delay={0.1 + index * 0.1}
-                  threshold={0.1}
-                  duration={0.3}
-                >
-                  <div className="relative flex items-center">
-                    {/* Timeline Node */}
-                    <div className="absolute left-1/2 transform -translate-x-1/2 w-12 h-12 bg-gray-900 border-2 border-blue-400 rounded-full z-10 flex items-center justify-center text-blue-400">
-                      {item.icon}
-                    </div>
+              {/* Timeline Items */}
+              <div className="space-y-32">
+                {educationTimeline.map((item, index) => (
+                  <AnimatedSection
+                    key={index}
+                    type="fade-slide"
+                    direction={index % 2 === 0 ? "right" : "left"}
+                    delay={0.1 + index * 0.1}
+                    threshold={0.1}
+                    duration={0.3}
+                  >
+                    <div className="relative flex items-start">
+                      {/* Timeline Node */}
+                      <div className="absolute left-1/2 transform -translate-x-1/2 w-16 h-16 bg-gray-900 border-2 border-blue-400 rounded-full z-10 flex items-center justify-center text-blue-400">
+                        {item.icon}
+                      </div>
 
-                    {/* Year marker */}
-                    <div className="absolute left-1/2 transform -translate-x-1/2 mt-20 bg-gray-900 px-3 py-1 rounded-full border border-blue-400/30 text-sm font-medium text-blue-400">
-                      {item.years}
-                    </div>
-
-                    {/* Content */}
-                    <div className={`w-5/12 ${index % 2 === 0 ? "pr-12 text-right" : "pl-12 ml-auto"}`}>
+                      {/* Year marker - positioned on opposite side from content */}
                       <div
-                        className={`bg-gray-900/50 border border-gray-800 rounded-lg p-6 hover:border-blue-400/30 transition-all duration-300 transform hover:-translate-y-1 hover:shadow-lg hover:shadow-blue-900/10 ${index % 2 === 0 ? "mr-6" : "ml-6"}`}
+                        className={`absolute ${
+                          index % 2 === 0 ? "left-[55%]" : "right-[55%]"
+                        } mt-5 text-sm font-medium text-blue-400`}
                       >
-                        <h4 className="text-lg font-medium text-white">{item.degree}</h4>
-                        <p className="text-blue-300 text-sm mb-2">{item.institution}</p>
-                        <p className="text-gray-300 text-sm">{item.description}</p>
+                        {item.years}
+                      </div>
+
+                      {/* Content */}
+                      <div
+                        className={`w-6/12 ${
+                          index % 2 === 0 ? "pr-8 text-right" : "pl-8 ml-auto"
+                        }`}
+                      >
+                        <div
+                          className={`bg-[#111827] border border-gray-800 rounded-lg p-6 hover:border-blue-400/30 transition-all duration-300 transform hover:-translate-y-1 hover:shadow-lg hover:shadow-blue-900/10 relative ${
+                            index % 2 === 0 ? "mr-6" : "ml-6"
+                          }`}
+                        >
+                          {/* Triangle connector */}
+                          <div
+                            className={`absolute top-6 w-0 h-0 border-solid ${
+                              index % 2 === 0
+                                ? "right-[-10px] border-l-[10px] border-l-[#111827] border-y-transparent border-y-[10px] border-r-0"
+                                : "left-[-10px] border-r-[10px] border-r-[#111827] border-y-transparent border-y-[10px] border-l-0"
+                            }`}
+                          ></div>
+
+                          <h4 className="text-lg font-medium text-white">
+                            {item.degree}
+                          </h4>
+                          <p className="text-blue-300 text-sm mb-2">
+                            {item.institution} • {item.location}
+                          </p>
+                          <p className="text-gray-300 text-sm">
+                            {item.description}
+                          </p>
+                        </div>
                       </div>
                     </div>
+                  </AnimatedSection>
+                ))}
+              </div>
+            </div>
 
-                    {/* Connector Line */}
-                    <div
-                      className={`absolute top-6 h-0.5 bg-blue-400/30 w-[calc(25%-24px)] ${
-                        index % 2 === 0 ? "right-[50%]" : "left-[50%]"
-                      }`}
-                    ></div>
-                  </div>
-                </AnimatedSection>
-              ))}
+            {/* Mobile Timeline */}
+            <div className="md:hidden">
+              {/* Timeline Line */}
+              <div className="absolute left-6 top-0 bottom-0 w-0.5 bg-blue-400/30"></div>
+
+              {/* Timeline Items */}
+              <div className="space-y-16">
+                {educationTimeline.map((item, index) => (
+                  <AnimatedSection
+                    key={index}
+                    type="fade-slide"
+                    direction="right"
+                    delay={0.1 + index * 0.1}
+                    threshold={0.1}
+                    duration={0.3}
+                  >
+                    <div className="relative flex items-start ml-6">
+                      {/* Timeline Node */}
+                      <div className="absolute left-0 transform -translate-x-1/2 w-12 h-12 bg-gray-900 border-2 border-blue-400 rounded-full z-10 flex items-center justify-center text-blue-400">
+                        {item.icon}
+                      </div>
+
+                      {/* Content */}
+                      <div className="ml-10 w-full">
+                        <div className="bg-[#111827] border border-gray-800 rounded-lg p-5 hover:border-blue-400/30 transition-all duration-300 relative">
+                          {/* Triangle connector */}
+                          <div className="absolute top-4 left-[-10px] w-0 h-0 border-solid border-r-[10px] border-r-[#111827] border-y-transparent border-y-[10px] border-l-0"></div>
+
+                          <h4 className="text-lg font-medium text-white">
+                            {item.degree}
+                          </h4>
+                          <p className="text-blue-300 text-sm mb-2">
+                            {item.institution} • {item.location}
+                          </p>
+                          <p className="text-gray-300 text-sm mb-3">
+                            {item.description}
+                          </p>
+                          <p className="text-sm text-blue-400">{item.years}</p>
+                        </div>
+                      </div>
+                    </div>
+                  </AnimatedSection>
+                ))}
+              </div>
             </div>
           </div>
         </div>
       </div>
     </section>
-  )
+  );
 }
