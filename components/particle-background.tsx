@@ -31,16 +31,16 @@ export default function ParticleBackground() {
 
     const initParticles = () => {
       particles.current = []
-      const particleCount = Math.min(Math.floor((canvas.width * canvas.height) / 15000), 100)
+      const particleCount = Math.min(Math.floor((canvas.width * canvas.height) / 15), 600)
 
       for (let i = 0; i < particleCount; i++) {
         particles.current.push({
           x: Math.random() * canvas.width,
           y: Math.random() * canvas.height,
           size: Math.random() * 2 + 0.5,
-          speedX: (Math.random() - 0.5) * 0.5,
-          speedY: (Math.random() - 0.5) * 0.5,
-          opacity: Math.random() * 0.5 + 0.1,
+          speedX: (Math.random() - 0.5) * 1,
+          speedY: (Math.random() - 0.5) * 1,
+          opacity: Math.random() * 0.5 + .8,
         })
       }
     }
@@ -87,7 +87,7 @@ export default function ParticleBackground() {
 
         if (distance < 120) {
           ctx.beginPath()
-          ctx.strokeStyle = `rgba(100, 150, 255, ${0.1 * (1 - distance / 120)})`
+          ctx.strokeStyle = `rgba(100, 150, 255, ${1 * (1 - distance / 120)})`
           ctx.lineWidth = 0.5
           ctx.moveTo(particle.x, particle.y)
           ctx.lineTo(otherParticle.x, otherParticle.y)
@@ -106,5 +106,5 @@ export default function ParticleBackground() {
     }
   }, [])
 
-  return <canvas ref={canvasRef} className="absolute inset-0 z-0 opacity-30" style={{ pointerEvents: "none" }} />
+  return <canvas ref={canvasRef} className="absolute inset-0 z-0 opacity-40" style={{ pointerEvents: "none" }} />
 }
