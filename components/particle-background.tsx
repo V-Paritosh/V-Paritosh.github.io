@@ -14,15 +14,16 @@ interface Particle {
 export default function ParticleBackground() {
   const canvasRef = useRef<HTMLCanvasElement>(null)
   const particles = useRef<Particle[]>([])
-  const animationFrameId = useRef<number>(0)
+  const animationFrameId = useRef<number>(0);
 
   useEffect(() => {
-    const canvas = canvasRef.current
-    if (!canvas) return
+    const canvas = canvasRef.current;
+    if (!canvas) return;
 
-    const ctx = canvas.getContext("2d")
-    if (!ctx) return
-
+    const isMobile = window.innerWidth <= 800;
+    const ctx = canvas.getContext("2d");
+    if (!ctx) return;
+    
     const resizeCanvas = () => {
       canvas.width = window.innerWidth
       canvas.height = window.innerHeight
@@ -31,7 +32,9 @@ export default function ParticleBackground() {
 
     const initParticles = () => {
       particles.current = []
-      const particleCount = Math.min(Math.floor((canvas.width * canvas.height) / 15), 600)
+      const particleCount = isMobile
+        ? Math.min(Math.floor((canvas.width * canvas.height) / 50), 300)
+        : Math.min(Math.floor((canvas.width * canvas.height) / 50), 600);
 
       for (let i = 0; i < particleCount; i++) {
         particles.current.push({
@@ -46,34 +49,45 @@ export default function ParticleBackground() {
     }
 
     const drawParticles = () => {
-      if (!ctx || !canvas) return
+      let lastDrawTime = 0;
+      const frameRate = 30; // ~30 fps
 
-      ctx.clearRect(0, 0, canvas.width, canvas.height)
+      const now = Date.now();
+      if (now - lastDrawTime < 1000 / frameRate) {
+        animationFrameId.current = requestAnimationFrame(drawParticles);
+        return;
+      }
+      lastDrawTime = now;
+
+
+      if (!ctx || !canvas) return;
+
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
 
       particles.current.forEach((particle, index) => {
         // Update position
-        particle.x += particle.speedX
-        particle.y += particle.speedY
+        particle.x += particle.speedX;
+        particle.y += particle.speedY;
 
         // Boundary check
         if (particle.x < 0 || particle.x > canvas.width) {
-          particle.speedX *= -1
+          particle.speedX *= -1;
         }
         if (particle.y < 0 || particle.y > canvas.height) {
-          particle.speedY *= -1
+          particle.speedY *= -1;
         }
 
         // Draw particle
-        ctx.beginPath()
-        ctx.arc(particle.x, particle.y, particle.size, 0, Math.PI * 2)
-        ctx.fillStyle = `rgba(100, 150, 255, ${particle.opacity})`
-        ctx.fill()
+        ctx.beginPath();
+        ctx.arc(particle.x, particle.y, particle.size, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(100, 150, 255, ${particle.opacity})`;
+        ctx.fill();
 
         // Connect particles
-        connectParticles(particle, index)
-      })
+        connectParticles(particle, index);
+      });
 
-      animationFrameId.current = requestAnimationFrame(drawParticles)
+      animationFrameId.current = requestAnimationFrame(drawParticles);
     }
 
     const connectParticles = (particle: Particle, index: number) => {
@@ -85,13 +99,14 @@ export default function ParticleBackground() {
           Math.pow(particle.x - otherParticle.x, 2) + Math.pow(particle.y - otherParticle.y, 2),
         )
 
-        if (distance < 120) {
-          ctx.beginPath()
-          ctx.strokeStyle = `rgba(100, 150, 255, ${1 * (1 - distance / 120)})`
-          ctx.lineWidth = 0.5
-          ctx.moveTo(particle.x, particle.y)
-          ctx.lineTo(otherParticle.x, otherParticle.y)
-          ctx.stroke()
+        const maxDistance = isMobile ? 60 : 120;
+        if (distance < maxDistance) {
+          ctx.beginPath();
+          ctx.strokeStyle = `rgba(100, 150, 255, ${1 * (1 - distance / 120)})`;
+          ctx.lineWidth = 0.5;
+          ctx.moveTo(particle.x, particle.y);
+          ctx.lineTo(otherParticle.x, otherParticle.y);
+          ctx.stroke();
         }
       }
     }
