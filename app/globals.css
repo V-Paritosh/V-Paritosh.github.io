@@ -58,6 +58,11 @@
   }
 }
 
+html,
+body {
+  overflow-x: hidden;
+}
+
 html {
   scroll-behavior: smooth;
 }
@@ -86,6 +91,42 @@ html {
 
 ::-webkit-scrollbar-thumb:hover {
   background: #3b82f6;
+}
+
+@keyframes drawLine {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes fillIn {
+  to {
+    fill: #fff;
+    stroke-width: 200; /* Change this to your desired fill color */
+  }
+}
+
+.draw {
+  stroke: #fff;
+  stroke-width: 100;
+  fill: none;
+  stroke-dasharray: 100000;
+  stroke-dashoffset: 100000;
+}
+
+.speed{
+  animation: drawLine 8s linear forwards, fillIn 0s linear forwards;
+  animation-delay: 0s, 2.8s;
+}
+
+.speedOne{
+  animation: drawLine 6s linear forwards, fillIn 0s linear forwards;
+  animation-delay: 0s, 2.8s;
+}
+
+.speedTwo{
+  animation: drawLine 3.2s linear forwards, fillIn 0s linear forwards;
+  animation-delay: 0s, 2.8s;
 }
 
 /* Animation for skill bars */
