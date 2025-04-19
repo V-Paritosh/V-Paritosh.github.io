@@ -68,7 +68,10 @@ export default function Hero() {
   }, []);
 
   return (
-    <section id="home" className="relative min-h-screen flex items-center">
+    <section
+      id="home"
+      className="relative min-h-screen flex items-center"
+    >
       <Navbar />
       <ParticleBackground />
 
@@ -138,6 +141,7 @@ export default function Hero() {
               <div className="mt-8 flex space-x-5">
                 <Link
                   href="https://github.com/V-Paritosh"
+                  target="_blank"
                   className="text-gray-100 hover:text-blue-400 transition-all duration-300 transform hover:scale-110"
                 >
                   <Github size={20} />
@@ -145,6 +149,7 @@ export default function Hero() {
                 </Link>
                 <Link
                   href="https://www.linkedin.com/in/paritoshvaghasiya/"
+                  target="_blank"
                   className="text-gray-100 hover:text-blue-400 transition-all duration-300 transform hover:scale-110"
                 >
                   <Linkedin size={20} />
