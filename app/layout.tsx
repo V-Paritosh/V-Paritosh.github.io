@@ -18,7 +18,7 @@ const poppins = Poppins({
 })
 
 export const metadata = {
-  title: "Professional Portfolio",
+  title: "Paritosh Vaghasiya",
   description:
     "A professional portfolio showcasing expertise in computer science, security research, and full-stack development",
     generator: 'v0.dev'
@@ -30,15 +30,19 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en" className="scroll-smooth">
+    <html lang="en" className="scroll-smooth" suppressHydrationWarning>
       <body className={`${inter.variable} ${poppins.variable} font-sans`}>
-        <ThemeProvider attribute="class" defaultTheme="dark" enableSystem={false}>
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="dark"
+          enableSystem={false}
+        >
           {children}
           <Footer />
         </ThemeProvider>
       </body>
     </html>
-  )
+  );
 }
 
 
