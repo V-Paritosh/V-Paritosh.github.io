@@ -101,7 +101,7 @@ export const metadata = {
     siteName: "Paritosh Vaghasiya",
     images: [
       {
-        url: "/assets/ogBanner.png", // ideally, replace with a real OG image like /og-banner.jpg
+        url: "https://v-paritosh.github.io/assets/ogBanner.png", // ideally, replace with a real OG image like /og-banner.jpg
         width: 1200,
         height: 630,
         alt: "Paritosh Vaghasiya",
@@ -115,7 +115,7 @@ export const metadata = {
     title: "Paritosh Vaghasiya",
     description:
       "Portfolio of Paritosh Vaghasiya — building secure, AI-powered, data-driven, and full-stack web solutions. Explore projects, skills, and experiences in tech.",
-    images: ["/assets/ogBanner.png"], // again, ideally a real OG image here
+    images: ["https://v-paritosh.github.io/assets/ogBanner.png"], // again, ideally a real OG image here
   },
   verification: {
     google: "iqdDaX6hCruc9rj2wkzsHf71B0AqYpaWHajtn7p4sE8",
