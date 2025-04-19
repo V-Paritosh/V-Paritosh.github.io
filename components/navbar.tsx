@@ -3,13 +3,15 @@
 import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import { Menu, X } from "lucide-react";
+import Image from "next/image";
 
 const navLinks = [
   { name: "Home", href: "#home" },
   { name: "About", href: "#about" },
   { name: "Experience", href: "#experience" },
   { name: "Projects", href: "#projects" },
-  { name: "Skills", href: "#skills"},
+  { name: "Skills", href: "#skills" },
+  { name: "Contact", href: "#contact" },
 ];
 
 export default function Navbar() {
@@ -57,9 +59,9 @@ export default function Navbar() {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300${
         isScrolled ? "bg-black/85 backdrop-blur-md py-3" : "bg-transparent py-5"
-      }`}
+      }`} // Keep bg-black on mobile and transparent on larger screens
     >
       <div className="container mx-auto px-4 md:px-6">
         <div className="relative flex items-center justify-between">
@@ -67,9 +69,11 @@ export default function Navbar() {
             href="#home"
             className="text-xl font-semibold tracking-tight hover:text-blue-400 transition-colors"
           >
-            <img
+            <Image
               src="/assets/logoBlack.png"
               alt="Logo"
+              width={10}
+              height={10}
               className="w-10 h-auto shadow-lg"
             />
           </Link>
