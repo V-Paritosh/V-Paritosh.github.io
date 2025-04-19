@@ -152,8 +152,7 @@ export default function Experience() {
             </h2>
             <div className="w-20 h-1 bg-blue-400 rounded mb-8"></div>
             <p className="text-gray-300 text-center max-w-2xl font-poppins font-light">
-              My professional journey through various roles in security
-              research, artificial intelligence, and software development.
+              My professional journey through various roles in artificial intelligence and software development.
             </p>
           </div>
         </AnimatedSection>
