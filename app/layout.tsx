@@ -79,17 +79,20 @@ export const metadata = {
   robots: "index, follow",
   icons: {
     icon: [
-      { url: "/assets/favicon/favicon.ico" },
+      { url: "https://v-paritosh.github.io/assets/favicon/favicon.ico" },
       {
-        url: "/assets/favicon/favicon-96x96.png",
+        url: "https://v-paritosh.github.io/assets/favicon/favicon-96x96.png",
         sizes: "96x96",
         type: "image/png",
       },
-      { url: "/assets/favicon/favicon.svg", type: "image/svg+xml" },
+      {
+        url: "https://v-paritosh.github.io/assets/favicon/favicon.svg",
+        type: "image/svg+xml",
+      },
     ],
-    apple: "/apple-touch-icon.png",
+    apple: "https://v-paritosh.github.io/assets/favicon/apple-touch-icon.png",
   },
-  manifest: "/assets/favicon/site.webmanifest",
+  manifest: "https://v-paritosh.github.io/assets/favicon/site.webmanifest",
   appleWebApp: {
     title: "Paritosh Vaghasiya",
   },
