@@ -2,6 +2,7 @@
 
 import { useInView } from "@/hooks/use-in-view"
 import type { ReactNode } from "react"
+import { useEffect } from "react";
 
 type AnimationDirection = "up" | "down" | "left" | "right" | "none"
 type AnimationType = "fade" | "slide" | "scale" | "fade-slide"
@@ -28,6 +29,16 @@ export default function AnimatedSection({
   distance = 50,
 }: AnimatedSectionProps) {
   const { ref, isInView } = useInView({ threshold })
+
+  useEffect(() => {
+    const hash = window.location.hash;
+    if (hash) {
+      setTimeout(() => {
+        const el = document.querySelector(hash);
+        if (el) el.scrollIntoView({ behavior: "smooth" });
+      }, 300); // Delay to allow animations to mount
+    }
+  }, []);
 
   const getTransform = () => {
     if (type === "fade") return "none"
