@@ -28,7 +28,7 @@ export default function About() {
                 <div className="absolute inset-0 rounded-full bg-gradient-to-r from-blue-600 to-blue-400 blur-lg opacity-30 animate-pulse"></div>
                 <div className="relative w-full h-full rounded-full overflow-hidden border-2 border-blue-400/30">
                   <Image
-                    src="/assets/paritosh.jpg?height=320&width=320"
+                    src="/assets/paritosh.jpg"
                     alt="Profile"
                     width={320}
                     height={320}
@@ -61,9 +61,9 @@ export default function About() {
               <p className="text-gray-300 mb-6 font-poppins font-light leading-relaxed">
                 I'm a passionate computer scientist with expertise in data
                 science, artificial intelligence, and full-stack development. As
-                a rising computer scientist in the tech industry, I've worked
-                on data-intensive applications, developing machine learning
-                models, and building scalable applications.
+                a rising computer scientist in the tech industry, I've worked on
+                data-intensive applications, developing machine learning models,
+                and building scalable applications.
               </p>
             </AnimatedSection>
 
