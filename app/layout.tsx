@@ -79,7 +79,10 @@ export const metadata = {
   robots: "index, follow",
   icons: {
     icon: [
-      { url: "https://v-paritosh.github.io/assets/favicon/favicon.ico" },
+      {
+        url: "https://v-paritosh.github.io/assets/favicon/favicon.ico",
+        type: "image/x-icon",
+      },
       {
         url: "https://v-paritosh.github.io/assets/favicon/favicon-96x96.png",
         sizes: "96x96",
