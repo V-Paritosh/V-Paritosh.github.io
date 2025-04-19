@@ -29,27 +29,60 @@ export default function Contact() {
     }))
   }
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault()
-    setFormStatus({ status: "submitting", message: "" })
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setFormStatus({ status: "submitting", message: "" });
 
-    // Simulate form submission
-    setTimeout(() => {
+    try {
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify({
+          access_key: "e7c24c82-13a4-4e29-9dc4-34450223982a", // replace with yours if different
+          name: formData.name,
+          email: formData.email,
+          subject: "Message from website" + formData.subject,
+          message: formData.message,
+        }),
+      });
+
+      const result = await response.json();
+
+      if (result.success) {
+        setFormStatus({
+          status: "success",
+          message: "Your message has been sent successfully! Thank you",
+        });
+        setFormData({
+          name: "",
+          email: "",
+          subject: "",
+          message: "",
+        });
+      } else {
+        setFormStatus({
+          status: "error",
+          message: "Something went wrong. Please try again later.",
+        });
+      }
+    } catch (error) {
+      console.error("Form submission error:", error);
       setFormStatus({
-        status: "success",
-        message: "Your message has been sent successfully!",
-      })
-      setFormData({
-        name: "",
-        email: "",
-        subject: "",
-        message: "",
-      })
-    }, 1500)
-  }
+        status: "error",
+        message: "Failed to send message. Please check your network.",
+      });
+    }
+  };
+
 
   return (
-    <section id="contact" className="py-20 bg-gradient-to-t from-black to-gray-900">
+    <section
+      id="contact"
+      className="py-20 bg-gradient-to-b from-gray-900/20 to-black"
+    >
       <div className="container mx-auto px-4 md:px-6">
         <AnimatedSection type="fade-slide" direction="up">
           <div className="flex flex-col items-center mb-12">
@@ -58,8 +91,9 @@ export default function Contact() {
             </h2>
             <div className="w-20 h-1 bg-blue-400 rounded mb-8"></div>
             <p className="text-gray-300 text-center max-w-2xl font-poppins font-light">
-              Have a project in mind or want to discuss a collaboration? Feel free to reach out using the form below or
-              through my contact information.
+              Have a project in mind or want to discuss a collaboration? Feel
+              free to reach out using the form below or through my contact
+              information.
             </p>
           </div>
         </AnimatedSection>
@@ -69,7 +103,9 @@ export default function Contact() {
           <div className="lg:col-span-2 space-y-8">
             <AnimatedSection type="fade-slide" direction="right" delay={0.2}>
               <div className="bg-gray-900/50 border border-gray-800 rounded-lg p-6">
-                <h3 className="text-xl font-semibold mb-6 text-white">Contact Information</h3>
+                <h3 className="text-xl font-semibold mb-6 text-white">
+                  Contact Information
+                </h3>
                 <div className="space-y-6">
                   <div className="flex items-start">
                     <div className="bg-blue-500/10 p-3 rounded-lg mr-4">
@@ -77,7 +113,9 @@ export default function Contact() {
                     </div>
                     <div>
                       <h4 className="text-white font-medium mb-1">Location</h4>
-                      <p className="text-gray-400 text-sm">San Francisco, California, USA</p>
+                      <p className="text-gray-400 text-sm">
+                        Chicago, Illinois, USA
+                      </p>
                     </div>
                   </div>
                   <div className="flex items-start">
@@ -86,10 +124,12 @@ export default function Contact() {
                     </div>
                     <div>
                       <h4 className="text-white font-medium mb-1">Email</h4>
-                      <p className="text-gray-400 text-sm">contact@example.com</p>
+                      <p className="text-gray-400 text-sm">
+                        paritoshnvaghasiya@gmail.com
+                      </p>
                     </div>
                   </div>
-                  <div className="flex items-start">
+                  {/* <div className="flex items-start">
                     <div className="bg-blue-500/10 p-3 rounded-lg mr-4">
                       <Phone className="text-blue-400" size={20} />
                     </div>
@@ -97,39 +137,53 @@ export default function Contact() {
                       <h4 className="text-white font-medium mb-1">Phone</h4>
                       <p className="text-gray-400 text-sm">+1 (555) 123-4567</p>
                     </div>
-                  </div>
-                  <div className="flex items-start">
+                  </div> */}
+                  {/* <div className="flex items-start">
                     <div className="bg-blue-500/10 p-3 rounded-lg mr-4">
                       <Clock className="text-blue-400" size={20} />
                     </div>
                     <div>
-                      <h4 className="text-white font-medium mb-1">Working Hours</h4>
-                      <p className="text-gray-400 text-sm">Monday - Friday: 9AM - 5PM PST</p>
+                      <h4 className="text-white font-medium mb-1">
+                        Working Hours
+                      </h4>
+                      <p className="text-gray-400 text-sm">
+                        Monday - Friday: 9AM - 5PM PST
+                      </p>
                     </div>
-                  </div>
+                  </div> */}
                 </div>
               </div>
             </AnimatedSection>
 
             {/* Map */}
-            <AnimatedSection type="fade-slide" direction="right" delay={0.3}>
+            {/* <AnimatedSection type="fade-slide" direction="right" delay={0.3}>
               <div className="bg-gray-900/50 border border-gray-800 rounded-lg p-6 h-64">
                 <div className="w-full h-full bg-gray-800 rounded-lg flex items-center justify-center">
                   <MapPin className="text-blue-400 mr-2" size={24} />
                   <span className="text-gray-400">Map Location</span>
                 </div>
               </div>
-            </AnimatedSection>
+            </AnimatedSection> */}
           </div>
 
           {/* Contact Form */}
-          <AnimatedSection type="fade-slide" direction="left" delay={0.2} className="lg:col-span-3">
+          <AnimatedSection
+            type="fade-slide"
+            direction="left"
+            delay={0.2}
+            className="lg:col-span-3"
+          >
             <div className="bg-gray-900/50 border border-gray-800 rounded-lg p-6">
-              <h3 className="text-xl font-semibold mb-6 text-white">Send Me a Message</h3>
+              <h3 className="text-xl font-semibold mb-6 text-white">
+                Send Me a Message
+              </h3>
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div>
-                    <label htmlFor="name" className="block text-gray-300 text-sm font-medium mb-2">
+                    <label
+                      htmlFor="name"
+                      className="block text-gray-300 text-sm font-medium mb-2"
+                    >
                       Your Name
                     </label>
                     <input
@@ -144,7 +198,10 @@ export default function Contact() {
                     />
                   </div>
                   <div>
-                    <label htmlFor="email" className="block text-gray-300 text-sm font-medium mb-2">
+                    <label
+                      htmlFor="email"
+                      className="block text-gray-300 text-sm font-medium mb-2"
+                    >
                       Your Email
                     </label>
                     <input
@@ -160,7 +217,10 @@ export default function Contact() {
                   </div>
                 </div>
                 <div>
-                  <label htmlFor="subject" className="block text-gray-300 text-sm font-medium mb-2">
+                  <label
+                    htmlFor="subject"
+                    className="block text-gray-300 text-sm font-medium mb-2"
+                  >
                     Subject
                   </label>
                   <input
@@ -175,7 +235,10 @@ export default function Contact() {
                   />
                 </div>
                 <div>
-                  <label htmlFor="message" className="block text-gray-300 text-sm font-medium mb-2">
+                  <label
+                    htmlFor="message"
+                    className="block text-gray-300 text-sm font-medium mb-2"
+                  >
                     Message
                   </label>
                   <textarea
@@ -189,7 +252,12 @@ export default function Contact() {
                     placeholder="Your message here..."
                   ></textarea>
                 </div>
-                <div>
+                <input
+                  type="text"
+                  name="botcheck"
+                  style={{ display: "none" }}
+                />
+                <div className="flex items-center justify-center">
                   <button
                     type="submit"
                     disabled={formStatus.status === "submitting"}
@@ -224,5 +292,5 @@ export default function Contact() {
         </div>
       </div>
     </section>
-  )
+  );
 }
