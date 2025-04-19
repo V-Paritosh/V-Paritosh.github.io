@@ -54,7 +54,7 @@ const projects: Project[] = [
     title: "Code211 Hackathon Website",
     description:
       "Developed the official Code211 Hackathon website to streamline communication, registration, and event management. Implemented strong SEO techniques to improve visibility and ensure participants could easily find resources before and during the event.",
-    thumbnail: "/assets/project/code211.png",
+    thumbnail: "/assets/projectImg/code211.png",
     category: ["Web Development", "SEO"],
     technologies: ["HTML", "CSS", "JavaScript", "GitHub Pages"],
     githubUrl: "https://github.com/Code211/Code211.github.io", // update if needed
@@ -69,7 +69,7 @@ const projects: Project[] = [
     title: "ICEG Non-Profit Website",
     description:
       "This website was built for ICEG, a community-oriented non-profit, to promote events and inform visitors. Focus was placed on UI/UX, accessibility, and fast load times using Next.js with server-side rendering.",
-    thumbnail: "/assets/project/iceg.png",
+    thumbnail: "/assets/projectImg/iceg.png",
     category: ["Web Development"],
     technologies: ["Next.js", "React", "Tailwind CSS", "GitHub Pages"],
     githubUrl: "https://github.com/iceg-nonprofit/iceg-nonprofit.github.io",
@@ -84,7 +84,7 @@ const projects: Project[] = [
     title: "SpendSense",
     description:
       "SpendSense is a responsive web app that helps users manage their finances. Users can track income, expenses, and categories through a dynamic UI connected to a PostgreSQL database via Supabase.",
-    thumbnail: "/assets/project/spendsense.png",
+    thumbnail: "/assets/projectImg/spendsense.png",
     category: ["Web Development", "Finance"],
     technologies: [
       "HTML",
