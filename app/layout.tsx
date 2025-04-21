@@ -80,7 +80,7 @@ export const metadata = {
   icons: {
     icon: [
       {
-        url: "https://v-paritosh.github.io/favicon.ico",
+        url: "/favicon.ico",
         type: "image/x-icon",
       },
       {
@@ -89,13 +89,13 @@ export const metadata = {
         type: "image/png",
       },
       {
-        url: "https://v-paritosh.github.io/favicon.svg",
+        url: "/favicon.svg",
         type: "image/svg+xml",
       },
     ],
-    apple: "https://v-paritosh.github.io/assets/favicon/apple-touch-icon.png",
+    apple: "/assets/favicon/apple-touch-icon.png",
   },
-  manifest: "https://v-paritosh.github.io/manifest.json",
+  manifest: "/manifest.json",
   appleWebApp: {
     title: "Paritosh Vaghasiya",
   },
