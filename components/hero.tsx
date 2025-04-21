@@ -121,7 +121,7 @@ export default function Hero() {
                   View My Work
                 </Link>
                 <Link
-                  href="/Paritosh-Vaghasiya_Resume.pdf"
+                  href="/assets/Paritosh-Vaghasiya_Resume.pdf"
                   target="_blank"
                   className="bg-transparent hover:bg-white/10 text-white border border-white/50 px-6 py-3 rounded-md transition-all duration-300 transform hover:scale-105 font-medium text-sm"
                 >
