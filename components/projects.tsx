@@ -73,7 +73,7 @@ const projects: Project[] = [
     category: ["Web Development"],
     technologies: ["Next.js", "React", "Tailwind CSS", "GitHub Pages"],
     githubUrl: "https://github.com/iceg-nonprofit/iceg-nonprofit.github.io",
-    liveUrl: "https://iceg.org",
+    liveUrl: "https://iceg-nonprofit.github.io",
     detailedDescription: "",
     images: ["/images/iceg-1.png", "/images/iceg-2.png"],
     challenges: "",
