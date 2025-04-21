@@ -441,9 +441,7 @@ export default function Experience() {
                                   exp.description.map((item, i) => (
                                     <li
                                       key={i}
-                                      className={`text-gray-400 text-sm flex items-start ${
-                                        index % 2 === 0 ? "justify-end" : ""
-                                      }`}
+                                      className="text-gray-400 text-sm flex items-start"
                                     >
                                       {index % 2 === 0 ? (
                                         <span>{item}</span>
