@@ -152,7 +152,8 @@ export default function Experience() {
             </h2>
             <div className="w-20 h-1 bg-blue-400 rounded mb-8"></div>
             <p className="text-gray-300 text-center max-w-2xl font-poppins font-light">
-              My professional journey through various roles in artificial intelligence and software development.
+              My professional journey through various roles in artificial
+              intelligence and software development.
             </p>
           </div>
         </AnimatedSection>
@@ -443,15 +444,10 @@ export default function Experience() {
                                       key={i}
                                       className="text-gray-400 text-sm flex items-start"
                                     >
-                                      {index % 2 === 0 ? (
-                                        <span>{item}</span>
-                                      ) : null}
-                                      <span className="text-blue-400 mx-2">
+                                      <span className="text-blue-400 mr-2">
                                         •
                                       </span>
-                                      {index % 2 !== 0 ? (
-                                        <span>{item}</span>
-                                      ) : null}
+                                      <span>{item}</span>
                                     </li>
                                   ))
                                 ) : (
