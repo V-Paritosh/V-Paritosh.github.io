@@ -28,7 +28,7 @@ export default function About() {
                 <div className="absolute inset-0 rounded-full bg-gradient-to-r from-blue-600 to-blue-400 blur-lg opacity-30 animate-pulse"></div>
                 <div className="relative w-full h-full rounded-full overflow-hidden border-2 border-blue-400/30">
                   <Image
-                    src="/assets/paritosh.jpg"
+                    src="/assets/paritosh1.jpg"
                     alt="Profile"
                     width={320}
                     height={320}
