@@ -103,36 +103,56 @@ const projects: Project[] = [
   },
   {
     id: 5,
-    title: "Blackjack (Java CLI)",
+    title: "GradeMaster",
     description:
-      "Blackjack is a terminal-based game built in Java, implementing basic game logic like hit, stand, and dealer behavior. Focused on user decision-making and error handling.",
-    thumbnail: "/placeholder.svg?height=400&width=600",
-    category: ["CLI", "Game Development"],
-    technologies: ["Java"],
-    githubUrl: "",
-    liveUrl: "",
-    detailedDescription: "",
-    images: ["/images/blackjack-1.png"],
-    challenges: "",
-    solutions: "",
+      "Full-stack grade management system that helps students organize classes, assignments, and visualize weighted grades in real time.",
+    thumbnail: "/assets/projectImg/grademaster.png",
+    category: ["Web Development", "Education", "Full-Stack"],
+    technologies: [
+      "Next.js",
+      "TypeScript",
+      "MongoDB",
+      "Supabase",
+      "Zustand",
+      "Recharts",
+      "Tailwind CSS",
+    ],
+    githubUrl: "https://github.com/V-Paritosh/GradeMaster",
+    liveUrl: "https://grademaster211.netlify.app/",
+    detailedDescription:
+      "GradeMaster is a modern web app built for D211 students to centralize grade tracking and academic progress. It provides an intuitive dashboard for creating classes, adding grading sections, managing assignments, and calculating weighted GPAs. Real-time analytics, client-side calculations, and debounced backend syncing ensure a responsive, offline-first experience accessible from any device. Features include secure authentication, persistent state, grade visualization charts, and a 'what-if' grade calculator for scenario planning.",
+    images: [],
+    challenges:
+      "Handling nested class, section, and assignment data while ensuring offline-first client-side calculations and debounced synchronization to avoid excessive database writes.",
+    solutions:
+      "Implemented a document-based MongoDB schema with upsert logic, used Zustand for state management and persistence, and performed all grade calculations on the client to minimize latency and backend load.",
   },
   {
     id: 6,
-    title: "Python Password Manager",
+    title: "CodeNode",
     description:
-      "This password manager was built as part of the CS50P curriculum. It allows users to add, retrieve, and manage their credentials via the command line. Data is encrypted using the `cryptography` library, and stored securely in a local file. Emphasis was placed on creating a user-friendly CLI interface and maintaining best practices in security.",
-    thumbnail: "/placeholder.svg?height=400&width=600",
-    category: ["CLI", "Security", "Python"],
-    technologies: ["Python", "Cryptography", "CS50P"],
-    githubUrl: "https://github.com/V-Paritosh/CS50-Python/tree/main/9-Project", // update if needed
-    liveUrl: "", // CLI app, no live URL
-    detailedDescription: "",
-    images: [
-      "/images/password-manager-1.png",
-      "/images/password-manager-2.png",
+      "Project-based, gamified CS learning platform that helps students build practical programming skills while tracking progress and collaborating with peers. \n \n Created for FBLA-2026",
+    thumbnail: "/assets/projectImg/codenode.png",
+    category: ["Web Development", "Education", "Full-Stack"],
+    technologies: [
+      "Next.js",
+      "TypeScript",
+      "MongoDB",
+      "Supabase",
+      "Zustand",
+      "Tailwind CSS",
+      "Radix UI",
+      "Framer Motion",
     ],
-    challenges: "",
-    solutions: "",
+    githubUrl: "https://github.com/V-Paritosh/CodeNode",
+    liveUrl: "https://codenodefbla.netlify.app/",
+    detailedDescription:
+      "CodeNode bridges the gap between theoretical CS concepts and hands-on project experience for high school and college students. Learners engage with modular projects across multiple domains, earn XP for completed tasks, maintain streaks, and join collaborative study sessions. Real-time progress dashboards and gamification elements increase engagement, while modular MongoDB schemas allow flexible curriculum updates without migrations. The platform also supports secure file uploads, peer feedback, and personalized onboarding based on skill level.",
+    images: [],
+    challenges:
+      "Designing a scalable gamification system with XP, streak tracking, and collaborative modules while maintaining flexible project schemas for diverse learning paths.",
+    solutions:
+      "Built a modular MongoDB schema for projects, modules, and activities, integrated Supabase for authentication and secure file handling, and designed server-side API logic to handle real-time progress and activity tracking efficiently.",
   },
 ];
 
@@ -142,10 +162,8 @@ const categories = [
   "Web Development",
   "SEO",
   "Finance",
-  "CLI",
-  "Game Development",
-  "Security",
-  "Python",
+  "Education",
+  "Full-Stack",
 ];
 
 export default function Projects() {
@@ -251,7 +269,12 @@ export default function Projects() {
                     {project.title}
                   </h3>
                   <p className="text-gray-200 text-sm mb-4">
-                    {project.description}
+                    {project.description.split("\n").map((line, idx) => (
+                      <span key={idx}>
+                        {line}
+                        <br />
+                      </span>
+                    ))}
                   </p>
                   <div className="flex flex-wrap gap-2">
                     {project.technologies.map((tech) => (
