@@ -73,6 +73,7 @@ export default function Navbar() {
               alt="Logo"
               width={10}
               height={10}
+              priority
               className="w-10 h-auto shadow-lg"
             />
           </Link>
