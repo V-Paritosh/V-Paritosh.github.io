@@ -4,48 +4,48 @@
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    --background: 240 10% 96%;
+    --foreground: 240 6% 10%;
     --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card-foreground: 240 6% 10%;
     --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
-    --primary: 221.2 83.2% 53.3%;
-    --primary-foreground: 210 40% 98%;
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 221.2 83.2% 53.3%;
-    --radius: 0.5rem;
+    --popover-foreground: 240 6% 10%;
+    --primary: 38 74% 61%;
+    --primary-foreground: 240 6% 6%;
+    --secondary: 240 4% 91%;
+    --secondary-foreground: 240 6% 10%;
+    --muted: 240 4% 91%;
+    --muted-foreground: 240 4% 46%;
+    --accent: 38 74% 61%;
+    --accent-foreground: 240 6% 6%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 240 6% 85%;
+    --input: 240 6% 85%;
+    --ring: 38 74% 61%;
+    --radius: 0.75rem;
   }
 
   .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
-    --primary: 217.2 91.2% 59.8%;
-    --primary-foreground: 222.2 47.4% 11.2%;
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 224.3 76.3% 48%;
+    --background: 250 15% 5%;
+    --foreground: 40 10% 90%;
+    --card: 250 12% 8%;
+    --card-foreground: 40 10% 90%;
+    --popover: 250 12% 8%;
+    --popover-foreground: 40 10% 90%;
+    --primary: 38 74% 61%;
+    --primary-foreground: 250 15% 5%;
+    --secondary: 250 8% 14%;
+    --secondary-foreground: 40 10% 90%;
+    --muted: 250 8% 14%;
+    --muted-foreground: 240 5% 55%;
+    --accent: 38 74% 61%;
+    --accent-foreground: 250 15% 5%;
+    --destructive: 0 62% 30%;
+    --destructive-foreground: 40 10% 90%;
+    --border: 250 8% 16%;
+    --input: 250 8% 16%;
+    --ring: 38 74% 61%;
   }
 }
 
@@ -67,32 +67,25 @@ html {
   scroll-behavior: smooth;
 }
 
-.font-inter {
-  font-family: var(--font-inter);
-}
-
-.font-poppins {
-  font-family: var(--font-poppins);
-}
-
 /* Custom scrollbar */
 ::-webkit-scrollbar {
-  width: 8px;
+  width: 6px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #111;
+  background: hsl(250 15% 5%);
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #333;
-  border-radius: 4px;
+  background: hsl(250 8% 20%);
+  border-radius: 3px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #3b82f6;
+  background: hsl(38 74% 61%);
 }
 
+/* SVG animation keyframes */
 @keyframes drawLine {
   to {
     stroke-dashoffset: 0;
@@ -101,35 +94,35 @@ html {
 
 @keyframes fillIn {
   to {
-    fill: #fff;
-    stroke-width: 200; /* Change this to your desired fill color */
+    fill: hsl(40 10% 90%);
+    stroke-width: 200;
   }
 }
 
 .draw {
-  stroke: #fff;
+  stroke: hsl(40 10% 90%);
   stroke-width: 100;
   fill: none;
   stroke-dasharray: 100000;
   stroke-dashoffset: 100000;
 }
 
-.speed{
+.speed {
   animation: drawLine 8s linear forwards, fillIn 0s linear forwards;
   animation-delay: 0s, 2.8s;
 }
 
-.speedOne{
+.speedOne {
   animation: drawLine 6s linear forwards, fillIn 0s linear forwards;
   animation-delay: 0s, 2.8s;
 }
 
-.speedTwo{
+.speedTwo {
   animation: drawLine 3.2s linear forwards, fillIn 0s linear forwards;
   animation-delay: 0s, 2.8s;
 }
 
-/* Animation for skill bars */
+/* Skill bars animation */
 @keyframes growWidth {
   from {
     width: 0%;
@@ -143,10 +136,9 @@ html {
   --width: attr(data-width);
 }
 
-/* Fix for skill bars animation */
 .bg-gradient-to-r[data-width] {
   animation-fill-mode: forwards;
-  animation-duration: 0.8s; /* Faster animation */
+  animation-duration: 0.8s;
 }
 
 /* Timeline triangle connectors */
@@ -155,7 +147,7 @@ html {
   height: 0;
   border-top: 10px solid transparent;
   border-bottom: 10px solid transparent;
-  border-left: 10px solid #111827;
+  border-left: 10px solid hsl(250 12% 8%);
   position: absolute;
   right: -10px;
   top: 20px;
@@ -166,8 +158,41 @@ html {
   height: 0;
   border-top: 10px solid transparent;
   border-bottom: 10px solid transparent;
-  border-right: 10px solid #111827;
+  border-right: 10px solid hsl(250 12% 8%);
   position: absolute;
   left: -10px;
   top: 20px;
+}
+
+/* Noise texture overlay */
+.noise-bg::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Glass card effect */
+.glass-card {
+  background: hsl(250 12% 8% / 0.6);
+  backdrop-filter: blur(12px);
+  border: 1px solid hsl(250 8% 18%);
+}
+
+/* Subtle glow for accent elements */
+.accent-glow {
+  box-shadow: 0 0 20px hsl(38 74% 61% / 0.15), 0 0 60px hsl(38 74% 61% / 0.05);
+}
+
+/* Section divider gradient */
+.section-divider {
+  background: linear-gradient(
+    to right,
+    transparent,
+    hsl(38 74% 61% / 0.3),
+    transparent
+  );
+  height: 1px;
 }

@@ -46,7 +46,6 @@ export default function Navbar() {
       }
     };
 
-
     window.addEventListener("scroll", handleScroll);
     document.addEventListener("mousedown", handleClickOutside);
 
@@ -58,15 +57,17 @@ export default function Navbar() {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-black${
-        isScrolled ? " py-3 " : " py-5 "
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
+        isScrolled
+          ? "py-3 bg-background/80 backdrop-blur-xl border-b border-border"
+          : "py-5 bg-transparent"
       }`}
     >
       <div className="container mx-auto px-4 md:px-6">
         <div className="relative flex items-center justify-between">
           <Link
             href="#home"
-            className="text-xl font-semibold tracking-tight hover:text-blue-400 transition-colors"
+            className="text-xl font-heading font-semibold tracking-tight text-foreground hover:text-primary transition-colors"
           >
             <Image
               src="/assets/logoBlack.png"
@@ -74,25 +75,25 @@ export default function Navbar() {
               width={10}
               height={10}
               priority
-              className="w-10 h-auto shadow-lg"
+              className="w-10 h-auto"
             />
           </Link>
 
           {/* Desktop Nav */}
-          <nav className="hidden md:flex items-center justify-center absolute left-1/2 transform -translate-x-1/2 space-x-8">
+          <nav className="hidden md:flex items-center justify-center absolute left-1/2 transform -translate-x-1/2 gap-8">
             {navLinks.map((link) => (
               <Link
                 key={link.name}
                 href={link.href}
-                className={`text-sm font-medium transition-colors relative group ${
+                className={`text-sm font-body font-medium tracking-wide uppercase transition-colors relative group ${
                   activeSection === link.href.substring(1)
-                    ? "text-blue-400"
-                    : "text-gray-200 hover:text-blue-400"
+                    ? "text-primary"
+                    : "text-muted-foreground hover:text-foreground"
                 }`}
               >
                 {link.name}
                 <span
-                  className={`absolute -bottom-1 left-0 h-0.5 bg-blue-400 transition-all duration-300 ${
+                  className={`absolute -bottom-1 left-0 h-px bg-primary transition-all duration-300 ${
                     activeSection === link.href.substring(1)
                       ? "w-full"
                       : "w-0 group-hover:w-full"
@@ -103,16 +104,16 @@ export default function Navbar() {
           </nav>
 
           {/* Right side */}
-          <div className="flex items-center space-x-4">
+          <div className="flex items-center gap-4">
             <Link href="#contact" passHref>
-              <button className="hidden md:block bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 transition">
+              <button className="hidden md:block bg-primary text-primary-foreground px-5 py-2.5 rounded-lg font-body font-medium text-sm hover:brightness-110 transition-all duration-300">
                 Contact
               </button>
             </Link>
 
             {/* Mobile menu toggle */}
             <button
-              className="md:hidden text-gray-200 hover:text-blue-400 transition-colors"
+              className="md:hidden text-muted-foreground hover:text-primary transition-colors"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             >
               {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
@@ -125,17 +126,17 @@ export default function Navbar() {
       {mobileMenuOpen && (
         <nav
           ref={mobileMenuRef}
-          className="md:hidden bg-black/95 text-center backdrop-blur-md py-4 px-4"
+          className="md:hidden bg-background/95 backdrop-blur-xl text-center py-6 px-4 border-t border-border"
         >
-          <div className="flex flex-col space-y-4">
+          <div className="flex flex-col gap-4">
             {navLinks.map((link) => (
               <Link
                 key={link.name}
                 href={link.href}
-                className={`text-base font-medium transition-colors py-2 ${
+                className={`text-sm font-body font-medium tracking-wide uppercase transition-colors py-2 ${
                   activeSection === link.href.substring(1)
-                    ? "text-blue-400"
-                    : "text-gray-200 hover:text-blue-400"
+                    ? "text-primary"
+                    : "text-muted-foreground hover:text-foreground"
                 }`}
                 onClick={() => setMobileMenuOpen(false)}
               >
@@ -144,7 +145,7 @@ export default function Navbar() {
             ))}
           </div>
           <Link href="#contact" passHref>
-            <button className="md:block mt-3 bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 transition">
+            <button className="mt-4 bg-primary text-primary-foreground px-5 py-2.5 rounded-lg font-body font-medium text-sm hover:brightness-110 transition-all">
               Contact
             </button>
           </Link>

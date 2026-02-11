@@ -11,7 +11,7 @@ export default function AnimatedSVG() {
     >
       <g
         transform="translate(0,2000) scale(0.1,-0.1)"
-        fill="#FFFFFF"
+        fill="hsl(40, 10%, 90%)"
         strokeWidth="300"
       >
         <path

@@ -103,9 +103,9 @@ const config = {
         scaleUp: "scaleUp 0.5s ease-out forwards",
       },
       fontFamily: {
-        sans: ["var(--font-inter)", "sans-serif"],
-        inter: ["var(--font-inter)", "sans-serif"],
-        poppins: ["var(--font-poppins)", "sans-serif"],
+        sans: ["var(--font-outfit)", "sans-serif"],
+        heading: ["var(--font-syne)", "sans-serif"],
+        body: ["var(--font-outfit)", "sans-serif"],
       },
     },
   },

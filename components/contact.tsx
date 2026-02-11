@@ -3,7 +3,7 @@
 import type React from "react"
 
 import { useState } from "react"
-import { Send, MapPin, Phone, Mail, Clock } from "lucide-react"
+import { Send, MapPin, Mail } from "lucide-react"
 import AnimatedSection from "./animated-section"
 
 export default function Contact() {
@@ -41,7 +41,7 @@ export default function Contact() {
           Accept: "application/json",
         },
         body: JSON.stringify({
-          access_key: "e7c24c82-13a4-4e29-9dc4-34450223982a", // replace with yours if different
+          access_key: "e7c24c82-13a4-4e29-9dc4-34450223982a",
           name: formData.name,
           email: formData.email,
           subject: "Message from website" + formData.subject,
@@ -77,20 +77,20 @@ export default function Contact() {
     }
   };
 
-
   return (
-    <section
-      id="contact"
-      className="py-20 bg-gradient-to-b from-gray-900/20 to-black"
-    >
-      <div className="container mx-auto px-4 md:px-6">
+    <section id="contact" className="py-24 relative noise-bg">
+      <div className="section-divider mb-24" />
+      <div className="container mx-auto px-4 md:px-6 relative z-10">
         <AnimatedSection type="fade-slide" direction="up">
-          <div className="flex flex-col items-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4 font-inter">
-              Get In <span className="text-blue-400">Touch</span>
+          <div className="flex flex-col items-center mb-16">
+            <p className="text-primary font-body text-sm tracking-[0.3em] uppercase mb-3">
+              Let&apos;s connect
+            </p>
+            <h2 className="text-3xl md:text-4xl font-heading font-bold mb-4 text-foreground">
+              Get In Touch
             </h2>
-            <div className="w-20 h-1 bg-blue-400 rounded mb-8"></div>
-            <p className="text-gray-300 text-center max-w-2xl font-poppins font-light">
+            <div className="w-16 h-0.5 bg-primary rounded mb-8" />
+            <p className="text-muted-foreground text-center max-w-2xl font-body font-light">
               Have a project in mind or want to discuss a collaboration? Feel
               free to reach out using the form below or through my contact
               information.
@@ -102,68 +102,36 @@ export default function Contact() {
           {/* Contact Information */}
           <div className="lg:col-span-2 space-y-8">
             <AnimatedSection type="fade-slide" direction="right" delay={0.2}>
-              <div className="bg-gray-900/50 border border-gray-800 rounded-lg p-6">
-                <h3 className="text-xl font-semibold mb-6 text-white">
+              <div className="glass-card rounded-xl p-6">
+                <h3 className="text-xl font-heading font-semibold mb-6 text-foreground">
                   Contact Information
                 </h3>
                 <div className="space-y-6">
-                  <div className="flex items-start">
-                    <div className="bg-blue-500/10 p-3 rounded-lg mr-4">
-                      <MapPin className="text-blue-400" size={20} />
+                  <div className="flex items-start gap-4">
+                    <div className="bg-primary/10 p-3 rounded-lg">
+                      <MapPin className="text-primary" size={20} />
                     </div>
                     <div>
-                      <h4 className="text-white font-medium mb-1">Location</h4>
-                      <p className="text-gray-400 text-sm">
+                      <h4 className="text-foreground font-body font-medium mb-1">Location</h4>
+                      <p className="text-muted-foreground text-sm font-body">
                         Chicago, Illinois, USA
                       </p>
                     </div>
                   </div>
-                  <div className="flex items-start">
-                    <div className="bg-blue-500/10 p-3 rounded-lg mr-4">
-                      <Mail className="text-blue-400" size={20} />
+                  <div className="flex items-start gap-4">
+                    <div className="bg-primary/10 p-3 rounded-lg">
+                      <Mail className="text-primary" size={20} />
                     </div>
                     <div>
-                      <h4 className="text-white font-medium mb-1">Email</h4>
-                      <p className="text-gray-400 text-sm">
+                      <h4 className="text-foreground font-body font-medium mb-1">Email</h4>
+                      <p className="text-muted-foreground text-sm font-body">
                         paritoshnvaghasiya@gmail.com
                       </p>
                     </div>
                   </div>
-                  {/* <div className="flex items-start">
-                    <div className="bg-blue-500/10 p-3 rounded-lg mr-4">
-                      <Phone className="text-blue-400" size={20} />
-                    </div>
-                    <div>
-                      <h4 className="text-white font-medium mb-1">Phone</h4>
-                      <p className="text-gray-400 text-sm">+1 (555) 123-4567</p>
-                    </div>
-                  </div> */}
-                  {/* <div className="flex items-start">
-                    <div className="bg-blue-500/10 p-3 rounded-lg mr-4">
-                      <Clock className="text-blue-400" size={20} />
-                    </div>
-                    <div>
-                      <h4 className="text-white font-medium mb-1">
-                        Working Hours
-                      </h4>
-                      <p className="text-gray-400 text-sm">
-                        Monday - Friday: 9AM - 5PM PST
-                      </p>
-                    </div>
-                  </div> */}
                 </div>
               </div>
             </AnimatedSection>
-
-            {/* Map */}
-            {/* <AnimatedSection type="fade-slide" direction="right" delay={0.3}>
-              <div className="bg-gray-900/50 border border-gray-800 rounded-lg p-6 h-64">
-                <div className="w-full h-full bg-gray-800 rounded-lg flex items-center justify-center">
-                  <MapPin className="text-blue-400 mr-2" size={24} />
-                  <span className="text-gray-400">Map Location</span>
-                </div>
-              </div>
-            </AnimatedSection> */}
           </div>
 
           {/* Contact Form */}
@@ -173,8 +141,8 @@ export default function Contact() {
             delay={0.2}
             className="lg:col-span-3"
           >
-            <div className="bg-gray-900/50 border border-gray-800 rounded-lg p-6">
-              <h3 className="text-xl font-semibold mb-6 text-white">
+            <div className="glass-card rounded-xl p-6">
+              <h3 className="text-xl font-heading font-semibold mb-6 text-foreground">
                 Send Me a Message
               </h3>
               <form onSubmit={handleSubmit} className="space-y-6">
@@ -182,7 +150,7 @@ export default function Contact() {
                   <div>
                     <label
                       htmlFor="name"
-                      className="block text-gray-300 text-sm font-medium mb-2"
+                      className="block text-foreground/80 text-sm font-body font-medium mb-2"
                     >
                       Your Name
                     </label>
@@ -193,14 +161,14 @@ export default function Contact() {
                       value={formData.name}
                       onChange={handleChange}
                       required
-                      className="w-full bg-gray-800 border border-gray-700 rounded-md py-3 px-4 text-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent transition-colors"
+                      className="w-full bg-secondary border border-border rounded-lg py-3 px-4 text-foreground font-body focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary/50 transition-all placeholder:text-muted-foreground/50"
                       placeholder="John Doe"
                     />
                   </div>
                   <div>
                     <label
                       htmlFor="email"
-                      className="block text-gray-300 text-sm font-medium mb-2"
+                      className="block text-foreground/80 text-sm font-body font-medium mb-2"
                     >
                       Your Email
                     </label>
@@ -211,7 +179,7 @@ export default function Contact() {
                       value={formData.email}
                       onChange={handleChange}
                       required
-                      className="w-full bg-gray-800 border border-gray-700 rounded-md py-3 px-4 text-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent transition-colors"
+                      className="w-full bg-secondary border border-border rounded-lg py-3 px-4 text-foreground font-body focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary/50 transition-all placeholder:text-muted-foreground/50"
                       placeholder="john@example.com"
                     />
                   </div>
@@ -219,7 +187,7 @@ export default function Contact() {
                 <div>
                   <label
                     htmlFor="subject"
-                    className="block text-gray-300 text-sm font-medium mb-2"
+                    className="block text-foreground/80 text-sm font-body font-medium mb-2"
                   >
                     Subject
                   </label>
@@ -230,14 +198,14 @@ export default function Contact() {
                     value={formData.subject}
                     onChange={handleChange}
                     required
-                    className="w-full bg-gray-800 border border-gray-700 rounded-md py-3 px-4 text-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent transition-colors"
+                    className="w-full bg-secondary border border-border rounded-lg py-3 px-4 text-foreground font-body focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary/50 transition-all placeholder:text-muted-foreground/50"
                     placeholder="Project Inquiry"
                   />
                 </div>
                 <div>
                   <label
                     htmlFor="message"
-                    className="block text-gray-300 text-sm font-medium mb-2"
+                    className="block text-foreground/80 text-sm font-body font-medium mb-2"
                   >
                     Message
                   </label>
@@ -248,7 +216,7 @@ export default function Contact() {
                     onChange={handleChange}
                     required
                     rows={6}
-                    className="w-full bg-gray-800 border border-gray-700 rounded-md py-3 px-4 text-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent transition-colors resize-none"
+                    className="w-full bg-secondary border border-border rounded-lg py-3 px-4 text-foreground font-body focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary/50 transition-all resize-none placeholder:text-muted-foreground/50"
                     placeholder="Your message here..."
                   ></textarea>
                 </div>
@@ -261,11 +229,11 @@ export default function Contact() {
                   <button
                     type="submit"
                     disabled={formStatus.status === "submitting"}
-                    className="bg-blue-600 hover:bg-blue-700 text-white py-3 px-6 rounded-md transition-colors flex items-center justify-center w-full md:w-auto disabled:opacity-70 disabled:cursor-not-allowed"
+                    className="bg-primary hover:brightness-110 text-primary-foreground py-3 px-6 rounded-lg transition-all font-body font-medium flex items-center justify-center w-full md:w-auto disabled:opacity-70 disabled:cursor-not-allowed"
                   >
                     {formStatus.status === "submitting" ? (
                       <>
-                        <div className="animate-spin mr-2 h-4 w-4 border-2 border-white border-t-transparent rounded-full"></div>
+                        <div className="animate-spin mr-2 h-4 w-4 border-2 border-primary-foreground border-t-transparent rounded-full"></div>
                         Sending...
                       </>
                     ) : (
@@ -277,12 +245,12 @@ export default function Contact() {
                   </button>
                 </div>
                 {formStatus.status === "success" && (
-                  <div className="bg-green-500/10 border border-green-500/30 text-green-400 px-4 py-3 rounded-md text-sm animate-fadeIn">
+                  <div className="bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 px-4 py-3 rounded-lg text-sm font-body animate-fadeIn">
                     {formStatus.message}
                   </div>
                 )}
                 {formStatus.status === "error" && (
-                  <div className="bg-red-500/10 border border-red-500/30 text-red-400 px-4 py-3 rounded-md text-sm animate-fadeIn">
+                  <div className="bg-red-500/10 border border-red-500/30 text-red-400 px-4 py-3 rounded-lg text-sm font-body animate-fadeIn">
                     {formStatus.message}
                   </div>
                 )}

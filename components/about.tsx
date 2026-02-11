@@ -1,21 +1,25 @@
 import Image from "next/image";
-import { CheckCircle, GraduationCap, BookOpen } from "lucide-react";
+import { CheckCircle } from "lucide-react";
 import AnimatedSection from "./animated-section";
 
 export default function About() {
   return (
-    <section id="about" className="py-20 bg-black/90">
-      <div className="container mx-auto px-4 md:px-6">
+    <section id="about" className="py-24 relative noise-bg">
+      <div className="section-divider mb-24" />
+      <div className="container mx-auto px-4 md:px-6 relative z-10">
         <AnimatedSection type="fade-slide" direction="up" duration={0.3}>
-          <div className="flex flex-col items-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4 font-inter">
-              About <span className="text-blue-400">Me</span>
+          <div className="flex flex-col items-center mb-16">
+            <p className="text-primary font-body text-sm tracking-[0.3em] uppercase mb-3">
+              Get to know me
+            </p>
+            <h2 className="text-3xl md:text-4xl font-heading font-bold mb-4 text-foreground">
+              About Me
             </h2>
-            <div className="w-20 h-1 bg-blue-400 rounded mb-8"></div>
+            <div className="w-16 h-0.5 bg-primary rounded" />
           </div>
         </AnimatedSection>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           {/* Profile Image */}
           <AnimatedSection
             type="fade-slide"
@@ -25,16 +29,19 @@ export default function About() {
           >
             <div className="flex justify-center">
               <div className="relative w-64 h-64 md:w-80 md:h-80">
-                <div className="absolute inset-0 rounded-full bg-gradient-to-r from-blue-600 to-blue-400 blur-lg opacity-30 animate-pulse"></div>
-                <div className="relative w-full h-full rounded-full overflow-hidden border-2 border-blue-400/30">
+                <div className="absolute inset-0 rounded-2xl bg-primary/20 blur-2xl opacity-40 animate-pulse"></div>
+                <div className="relative w-full h-full rounded-2xl overflow-hidden border border-border">
                   <Image
                     src="/assets/paritosh1.jpg"
-                    alt="Profile"
+                    alt="Paritosh Vaghasiya"
                     width={320}
                     height={320}
                     className="object-cover"
                   />
                 </div>
+                {/* Decorative corner accent */}
+                <div className="absolute -top-2 -left-2 w-8 h-8 border-t-2 border-l-2 border-primary rounded-tl-lg" />
+                <div className="absolute -bottom-2 -right-2 w-8 h-8 border-b-2 border-r-2 border-primary rounded-br-lg" />
               </div>
             </div>
           </AnimatedSection>
@@ -47,7 +54,7 @@ export default function About() {
               delay={0.1}
               duration={0.3}
             >
-              <h3 className="text-2xl font-semibold mb-4 font-inter">
+              <h3 className="text-2xl font-heading font-semibold mb-4 text-foreground">
                 Computer Scientist & Scholar
               </h3>
             </AnimatedSection>
@@ -58,7 +65,7 @@ export default function About() {
               delay={0.15}
               duration={0.3}
             >
-              <p className="text-gray-300 mb-6 font-poppins font-light leading-relaxed">
+              <p className="text-muted-foreground mb-6 font-body font-light leading-relaxed">
                 I'm a passionate computer scientist with expertise in data
                 science, artificial intelligence, and full-stack development. As
                 a rising computer scientist in the tech industry, I've worked on
@@ -73,7 +80,7 @@ export default function About() {
               delay={0.2}
               duration={0.3}
             >
-              <p className="text-gray-300 mb-6 font-poppins font-light leading-relaxed">
+              <p className="text-muted-foreground mb-8 font-body font-light leading-relaxed">
                 My mindset as a scholar fuels my drive to explore beyond the
                 surface from understanding the nuances of natural language
                 processing to applying data science for real-world impact. I
@@ -90,30 +97,19 @@ export default function About() {
               duration={0.3}
             >
               <div className="grid grid-cols-2 gap-4 mb-6">
-                <div className="flex items-center">
-                  <CheckCircle size={16} className="text-blue-400 mr-2" />
-                  <span className="text-gray-300 text-sm">
-                    AI-Powered Solutions
-                  </span>
-                </div>
-                <div className="flex items-center">
-                  <CheckCircle size={16} className="text-blue-400 mr-2" />
-                  <span className="text-gray-300 text-sm">
-                    Data-Driven Development
-                  </span>
-                </div>
-                <div className="flex items-center">
-                  <CheckCircle size={16} className="text-blue-400 mr-2" />
-                  <span className="text-gray-300 text-sm">
-                    Full-Stack Engineering
-                  </span>
-                </div>
-                <div className="flex items-center">
-                  <CheckCircle size={16} className="text-blue-400 mr-2" />
-                  <span className="text-gray-300 text-sm">
-                    Open-Source Collaboration
-                  </span>
-                </div>
+                {[
+                  "AI-Powered Solutions",
+                  "Data-Driven Development",
+                  "Full-Stack Engineering",
+                  "Open-Source Collaboration",
+                ].map((item) => (
+                  <div key={item} className="flex items-center gap-2">
+                    <CheckCircle size={16} className="text-primary flex-shrink-0" />
+                    <span className="text-muted-foreground text-sm font-body">
+                      {item}
+                    </span>
+                  </div>
+                ))}
               </div>
             </AnimatedSection>
           </div>

@@ -28,7 +28,7 @@ const projects: Project[] = [
     id: 1,
     title: "AI Sanskrit-to-Gujarati Translator",
     description:
-      "A web application designed to help users, especially Swamis at Mandirs, translate Sanskrit scriptures into Gujarati. Utilizes OCR with OpenCV-enhanced image processing and Tesseract for improved text recognition, followed by NLP translation with IndicTrans2. ",
+      "A web application designed to help users, especially Swamis at Mandirs, translate Sanskrit scriptures into Gujarati. Utilizes OCR with OpenCV-enhanced image processing and Tesseract for improved text recognition, followed by NLP translation with IndicTrans2.",
     thumbnail: "",
     category: ["AI", "Web Development"],
     technologies: [
@@ -57,8 +57,8 @@ const projects: Project[] = [
     thumbnail: "/assets/projectImg/code211.png",
     category: ["Web Development", "SEO"],
     technologies: ["HTML", "CSS", "JavaScript", "GitHub Pages"],
-    githubUrl: "https://github.com/Code211/Code211.github.io", // update if needed
-    liveUrl: "https://code211.org", // update if needed
+    githubUrl: "https://github.com/Code211/Code211.github.io",
+    liveUrl: "https://code211.org",
     detailedDescription: "",
     images: ["/images/code211-1.png"],
     challenges: "",
@@ -193,15 +193,19 @@ export default function Projects() {
   }
 
   return (
-    <section id="projects" className="py-20 bg-gray-900">
-      <div className="container mx-auto px-4 md:px-6">
+    <section id="projects" className="py-24 relative noise-bg">
+      <div className="section-divider mb-24" />
+      <div className="container mx-auto px-4 md:px-6 relative z-10">
         <AnimatedSection type="fade-slide" direction="up">
-          <div className="flex flex-col items-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4 font-inter">
-              My <span className="text-blue-400">Projects</span>
+          <div className="flex flex-col items-center mb-16">
+            <p className="text-primary font-body text-sm tracking-[0.3em] uppercase mb-3">
+              Selected work
+            </p>
+            <h2 className="text-3xl md:text-4xl font-heading font-bold mb-4 text-foreground">
+              Projects
             </h2>
-            <div className="w-20 h-1 bg-blue-400 rounded mb-8"></div>
-            <p className="text-gray-300 text-center max-w-2xl font-poppins font-light">
+            <div className="w-16 h-0.5 bg-primary rounded mb-8" />
+            <p className="text-muted-foreground text-center max-w-2xl font-body font-light">
               A showcase of my work in data, artificial intelligence, and web
               development. Each project represents a unique challenge and
               innovative solution.
@@ -216,10 +220,10 @@ export default function Projects() {
               <button
                 key={category}
                 onClick={() => setSelectedCategory(category)}
-                className={`px-4 py-2 rounded-full text-sm transition-all ${
+                className={`px-4 py-2 rounded-full text-sm font-body font-medium transition-all duration-300 ${
                   selectedCategory === category
-                    ? "bg-blue-600 text-white"
-                    : "bg-gray-800 text-gray-300 hover:bg-gray-700"
+                    ? "bg-primary text-primary-foreground"
+                    : "bg-secondary text-muted-foreground hover:text-foreground hover:bg-secondary/80"
                 }`}
                 style={{
                   transitionDelay: `${index * 0.05}s`,
@@ -241,22 +245,22 @@ export default function Projects() {
               delay={0.3 + index * 0.1}
               threshold={0.05}
             >
-              <div className="bg-gray-800/50 border border-gray-700 rounded-lg overflow-hidden hover:border-blue-400/30 transition-all duration-300 transform hover:-translate-y-1 hover:shadow-lg hover:shadow-blue-900/10 h-full">
+              <div className="glass-card rounded-xl overflow-hidden hover:border-primary/30 transition-all duration-300 transform hover:-translate-y-1 h-full group">
                 <div className="relative aspect-video overflow-hidden">
                   <Image
                     src={project.thumbnail || "/placeholder.svg"}
                     alt={project.title}
                     fill={true}
                     sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                    className="object-cover transition-transform duration-500 hover:scale-110"
+                    className="object-cover transition-transform duration-500 group-hover:scale-110"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-gray-900 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300 flex items-end">
+                  <div className="absolute inset-0 bg-gradient-to-t from-background to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end">
                     <div className="p-4 w-full">
                       <div className="flex flex-wrap gap-2 mb-2">
                         {project.category.map((cat) => (
                           <span
                             key={cat}
-                            className="text-xs bg-blue-500/20 text-blue-300 px-2 py-0.5 rounded-full"
+                            className="text-xs bg-primary/20 text-primary px-2 py-0.5 rounded-full font-body"
                           >
                             {cat}
                           </span>
@@ -265,11 +269,11 @@ export default function Projects() {
                     </div>
                   </div>
                 </div>
-                <div className="p-4">
-                  <h3 className="text-xl font-semibold mb-2 text-white">
+                <div className="p-5">
+                  <h3 className="text-xl font-heading font-semibold mb-2 text-foreground">
                     {project.title}
                   </h3>
-                  <p className="text-gray-200 text-sm mb-4">
+                  <p className="text-muted-foreground text-sm font-body mb-4 leading-relaxed">
                     {project.description.split("\n").map((line, idx) => (
                       <span key={idx}>
                         {line}
@@ -277,21 +281,21 @@ export default function Projects() {
                       </span>
                     ))}
                   </p>
-                  <div className="flex flex-wrap gap-2">
+                  <div className="flex flex-wrap gap-2 mb-4">
                     {project.technologies.map((tech) => (
                       <span
                         key={tech}
-                        className="text-xs bg-gray-700 text-gray-300 px-2 py-0.5 rounded-full"
+                        className="text-xs bg-secondary text-muted-foreground px-2.5 py-1 rounded-full font-body"
                       >
                         {tech}
                       </span>
                     ))}
                   </div>
-                  <div className="flex gap-2 mt-4">
+                  <div className="flex gap-3 pt-3 border-t border-border">
                     {project.githubUrl && (
                       <Link
                         href={project.githubUrl}
-                        className="text-gray-300 hover:text-blue-400 transition-colors"
+                        className="text-muted-foreground hover:text-primary transition-colors"
                         target="_blank"
                       >
                         <Github size={18} />
@@ -301,7 +305,7 @@ export default function Projects() {
                     {project.liveUrl && (
                       <Link
                         href={project.liveUrl}
-                        className="text-gray-300 hover:text-blue-400 transition-colors"
+                        className="text-muted-foreground hover:text-primary transition-colors"
                         target="_blank"
                       >
                         <ExternalLink size={18} />
@@ -309,13 +313,6 @@ export default function Projects() {
                       </Link>
                     )}
                   </div>
-                  {/* <button
-                    onClick={() => openProjectModal(project)}
-                    className="text-blue-400 text-sm hover:text-blue-300 transition-colors flex items-center"
-                  >
-                    View Details
-                    <ExternalLink size={14} className="ml-1" />
-                  </button> */}
                 </div>
               </div>
             </AnimatedSection>
@@ -326,24 +323,24 @@ export default function Projects() {
         {selectedProject && (
           <div
             ref={modalRef}
-            className="fixed inset-0 bg-black/80 z-50 flex items-center justify-center p-4 overflow-y-auto"
+            className="fixed inset-0 bg-background/80 backdrop-blur-sm z-50 flex items-center justify-center p-4 overflow-y-auto"
             onClick={handleModalClick}
           >
-            <div className="bg-gray-900 border border-gray-800 rounded-lg max-w-4xl w-full max-h-[90vh] overflow-y-auto animate-fadeIn">
-              <div className="sticky top-0 bg-gray-900 z-10 flex justify-between items-center p-4 border-b border-gray-800">
-                <h3 className="text-xl font-semibold text-white">
+            <div className="glass-card rounded-xl max-w-4xl w-full max-h-[90vh] overflow-y-auto animate-fadeIn">
+              <div className="sticky top-0 glass-card z-10 flex justify-between items-center p-4 border-b border-border rounded-t-xl">
+                <h3 className="text-xl font-heading font-semibold text-foreground">
                   {selectedProject.title}
                 </h3>
                 <button
                   onClick={closeProjectModal}
-                  className="text-gray-400 hover:text-white transition-colors"
+                  className="text-muted-foreground hover:text-foreground transition-colors"
                 >
                   <X size={24} />
                 </button>
               </div>
               <div className="p-6">
                 {/* Image Carousel */}
-                <div className="relative aspect-video mb-6 bg-gray-800 rounded-lg overflow-hidden">
+                <div className="relative aspect-video mb-6 bg-secondary rounded-xl overflow-hidden">
                   <Image
                     src={
                       selectedProject.images[currentImageIndex] ||
@@ -357,15 +354,15 @@ export default function Projects() {
                     className="object-cover w-full h-full"
                   />
                   {selectedProject.images.length > 1 && (
-                    <div className="absolute bottom-4 left-0 right-0 flex justify-center space-x-2">
+                    <div className="absolute bottom-4 left-0 right-0 flex justify-center gap-2">
                       {selectedProject.images.map((_, index) => (
                         <button
                           key={index}
                           onClick={() => setCurrentImageIndex(index)}
                           className={`w-2 h-2 rounded-full ${
                             currentImageIndex === index
-                              ? "bg-blue-400"
-                              : "bg-gray-500"
+                              ? "bg-primary"
+                              : "bg-muted-foreground"
                           }`}
                         >
                           <span className="sr-only">Image {index + 1}</span>
@@ -378,42 +375,42 @@ export default function Projects() {
                 {/* Project Details */}
                 <div className="space-y-6">
                   <div>
-                    <h4 className="text-lg font-medium text-blue-300 mb-2">
+                    <h4 className="text-lg font-heading font-medium text-primary mb-2">
                       Description
                     </h4>
-                    <p className="text-gray-300 text-sm leading-relaxed">
+                    <p className="text-muted-foreground text-sm font-body leading-relaxed">
                       {selectedProject.detailedDescription}
                     </p>
                   </div>
 
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div>
-                      <h4 className="text-lg font-medium text-blue-300 mb-2">
+                      <h4 className="text-lg font-heading font-medium text-primary mb-2">
                         Challenges
                       </h4>
-                      <p className="text-gray-300 text-sm leading-relaxed">
+                      <p className="text-muted-foreground text-sm font-body leading-relaxed">
                         {selectedProject.challenges}
                       </p>
                     </div>
                     <div>
-                      <h4 className="text-lg font-medium text-blue-300 mb-2">
+                      <h4 className="text-lg font-heading font-medium text-primary mb-2">
                         Solutions
                       </h4>
-                      <p className="text-gray-300 text-sm leading-relaxed">
+                      <p className="text-muted-foreground text-sm font-body leading-relaxed">
                         {selectedProject.solutions}
                       </p>
                     </div>
                   </div>
 
                   <div>
-                    <h4 className="text-lg font-medium text-blue-300 mb-2">
+                    <h4 className="text-lg font-heading font-medium text-primary mb-2">
                       Technologies
                     </h4>
                     <div className="flex flex-wrap gap-2">
                       {selectedProject.technologies.map((tech) => (
                         <span
                           key={tech}
-                          className="text-sm bg-gray-800 text-gray-300 px-3 py-1 rounded-full"
+                          className="text-sm bg-secondary text-muted-foreground px-3 py-1 rounded-full font-body"
                         >
                           {tech}
                         </span>
@@ -421,17 +418,17 @@ export default function Projects() {
                     </div>
                   </div>
 
-                  <div className="flex space-x-4 pt-4 border-t border-gray-800">
+                  <div className="flex gap-4 pt-4 border-t border-border">
                     <Link
                       href={selectedProject.githubUrl}
-                      className="flex items-center bg-gray-800 hover:bg-gray-700 text-white px-4 py-2 rounded-md transition-colors"
+                      className="flex items-center bg-secondary hover:bg-secondary/80 text-foreground px-4 py-2 rounded-lg font-body transition-colors"
                     >
                       <Github size={18} className="mr-2" />
                       View on GitHub
                     </Link>
                     <Link
                       href={selectedProject.liveUrl}
-                      className="flex items-center bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-md transition-colors"
+                      className="flex items-center bg-primary hover:brightness-110 text-primary-foreground px-4 py-2 rounded-lg font-body transition-all"
                     >
                       <ExternalLink size={18} className="mr-2" />
                       Live Demo

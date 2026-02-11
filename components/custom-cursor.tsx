@@ -55,13 +55,13 @@ export default function CustomCursor() {
         }}
       >
         <div
-          className={`rounded-full bg-blue-400 transition-all duration-200 ${
+          className={`rounded-full bg-primary transition-all duration-200 ${
             isPointer ? "w-6 h-6 opacity-70" : "w-4 h-4 opacity-50"
           }`}
         ></div>
       </div>
       <div
-        className={`fixed pointer-events-none z-50 rounded-full border border-blue-400 ${
+        className={`fixed pointer-events-none z-50 rounded-full border border-primary ${
           isVisible ? "opacity-100" : "opacity-0"
         } transition-opacity duration-300`}
         style={{

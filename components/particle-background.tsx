@@ -80,7 +80,7 @@ export default function ParticleBackground() {
         // Draw particle
         ctx.beginPath();
         ctx.arc(particle.x, particle.y, particle.size, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(100, 150, 255, ${particle.opacity})`;
+        ctx.fillStyle = `rgba(228, 168, 83, ${particle.opacity * 0.6})`;
         ctx.fill();
 
         // Connect particles
@@ -102,7 +102,7 @@ export default function ParticleBackground() {
         const maxDistance = isMobile ? 60 : 120;
         if (distance < maxDistance) {
           ctx.beginPath();
-          ctx.strokeStyle = `rgba(100, 150, 255, ${1 * (1 - distance / 120)})`;
+          ctx.strokeStyle = `rgba(228, 168, 83, ${0.4 * (1 - distance / 120)})`;
           ctx.lineWidth = 0.5;
           ctx.moveTo(particle.x, particle.y);
           ctx.lineTo(otherParticle.x, otherParticle.y);

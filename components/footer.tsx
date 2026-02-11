@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link"
-import { ArrowUp, Github, Linkedin, Twitter, Mail } from "lucide-react"
+import { ArrowUp, Github, Linkedin, Mail } from "lucide-react"
 
 export default function Footer() {
   const [year, setYear] = useState<number | null>(null);
@@ -12,23 +12,23 @@ export default function Footer() {
   }, []);
 
   return (
-    <footer className="bg-gradient-to-t from-black/80 to-black pt-12 pb-6">
+    <footer className="bg-card pt-16 pb-8 border-t border-border">
       <div className="container mx-auto px-4 md:px-6">
         {/* Upper Footer */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 pb-8 border-b border-gray-800">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 pb-10 border-b border-border">
           <div>
-            <h3 className="text-xl font-semibold mb-4 bg-gradient-to-r from-white to-blue-400 bg-clip-text text-transparent">
+            <h3 className="text-xl font-heading font-semibold mb-4 text-primary">
               Portfolio
             </h3>
-            <p className="text-gray-400 mb-4 text-sm">
+            <p className="text-muted-foreground mb-6 text-sm font-body leading-relaxed max-w-sm">
               Showcasing my journey in computer science, artificial
               intelligence, and full-stack development.
             </p>
-            <div className="flex space-x-4">
+            <div className="flex gap-4">
               <Link
                 href="https://github.com/V-Paritosh"
                 target="_blank"
-                className="text-gray-400 hover:text-blue-400 transition-colors"
+                className="text-muted-foreground hover:text-primary transition-colors"
               >
                 <Github size={20} />
                 <span className="sr-only">GitHub</span>
@@ -36,14 +36,14 @@ export default function Footer() {
               <Link
                 href="https://www.linkedin.com/in/paritoshvaghasiya/"
                 target="_blank"
-                className="text-gray-400 hover:text-blue-400 transition-colors"
+                className="text-muted-foreground hover:text-primary transition-colors"
               >
                 <Linkedin size={20} />
                 <span className="sr-only">LinkedIn</span>
               </Link>
               <Link
                 href="mailto:paritoshnvaghasiya@gmail.com"
-                className="text-gray-400 hover:text-blue-400 transition-colors"
+                className="text-muted-foreground hover:text-primary transition-colors"
               >
                 <Mail size={20} />
                 <span className="sr-only">Email</span>
@@ -52,74 +52,38 @@ export default function Footer() {
           </div>
 
           <div>
-            <h3 className="text-lg font-semibold mb-4">Quick Links</h3>
+            <h3 className="text-lg font-heading font-semibold mb-4 text-foreground">Quick Links</h3>
             <ul className="space-y-2">
-              <li>
-                <Link
-                  href="#home"
-                  className="text-gray-400 hover:text-blue-400 transition-colors text-sm"
-                >
-                  Home
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="#about"
-                  className="text-gray-400 hover:text-blue-400 transition-colors text-sm"
-                >
-                  About
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="#experience"
-                  className="text-gray-400 hover:text-blue-400 transition-colors text-sm"
-                >
-                  Experience
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="#projects"
-                  className="text-gray-400 hover:text-blue-400 transition-colors text-sm"
-                >
-                  Projects
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="#skills"
-                  className="text-gray-400 hover:text-blue-400 transition-colors text-sm"
-                >
-                  Skills
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="#contact"
-                  className="text-gray-400 hover:text-blue-400 transition-colors text-sm"
-                >
-                  Contact
-                </Link>
-              </li>
+              {["Home", "About", "Experience", "Projects", "Skills", "Contact"].map(
+                (name) => (
+                  <li key={name}>
+                    <Link
+                      href={`#${name.toLowerCase()}`}
+                      className="text-muted-foreground hover:text-primary transition-colors text-sm font-body"
+                    >
+                      {name}
+                    </Link>
+                  </li>
+                )
+              )}
             </ul>
           </div>
         </div>
 
         {/* Lower Footer */}
         <div className="pt-6 flex flex-col md:flex-row justify-between items-center">
-          <p className="text-gray-500 text-sm">
-            © {year ?? "Loading..."} Paritosh Vaghasiya Portfolio. All rights reserved.
+          <p className="text-muted-foreground text-sm font-body">
+            &copy; {year ?? "Loading..."} Paritosh Vaghasiya Portfolio. All rights reserved.
           </p>
           <div className="mt-4 md:mt-0">
             <button
               onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-              className="flex items-center text-gray-400 hover:text-blue-400 transition-colors text-sm group"
+              className="flex items-center gap-1 text-muted-foreground hover:text-primary transition-colors text-sm font-body group"
             >
               Back to top
               <ArrowUp
                 size={16}
-                className="ml-1 transform group-hover:-translate-y-1 transition-transform"
+                className="transform group-hover:-translate-y-1 transition-transform"
               />
             </button>
           </div>

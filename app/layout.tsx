@@ -1,19 +1,19 @@
 import type React from "react";
 import "./globals.css";
-import { Inter, Poppins } from "next/font/google";
+import { Syne, Outfit } from "next/font/google";
 import { ThemeProvider } from "@/components/theme-provider";
 import Footer from "@/components/footer";
 
-const inter = Inter({
+const syne = Syne({
   subsets: ["latin"],
-  variable: "--font-inter",
+  variable: "--font-syne",
   display: "swap",
 });
 
-const poppins = Poppins({
+const outfit = Outfit({
   subsets: ["latin"],
-  weight: ["300", "400", "500", "600"],
-  variable: "--font-poppins",
+  weight: ["300", "400", "500", "600", "700"],
+  variable: "--font-outfit",
   display: "swap",
 });
 
@@ -138,7 +138,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className="scroll-smooth" suppressHydrationWarning>
-      <body className={`${inter.variable} ${poppins.variable} font-sans`}>
+      <body className={`${syne.variable} ${outfit.variable} font-sans`}>
         <ThemeProvider
           attribute="class"
           defaultTheme="dark"
@@ -151,5 +151,3 @@ export default function RootLayout({
     </html>
   );
 }
-
-import "./globals.css";
