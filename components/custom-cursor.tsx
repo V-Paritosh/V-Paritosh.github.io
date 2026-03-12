@@ -1,77 +1,82 @@
 "use client"
 
-import { useEffect, useState } from "react"
+import { useEffect, useRef, useState } from "react"
 
 export default function CustomCursor() {
-  const [position, setPosition] = useState({ x: 0, y: 0 })
-  const [isPointer, setIsPointer] = useState(false)
+  const cursorRef = useRef<HTMLDivElement>(null)
+  const cursorOuterRef = useRef<HTMLDivElement>(null)
   const [isVisible, setIsVisible] = useState(false)
+  const [isMobile, setIsMobile] = useState(true)
+  const rafId = useRef<number>(0)
+  const position = useRef({ x: 0, y: 0 })
 
   useEffect(() => {
-    const updatePosition = (e: MouseEvent) => {
-      setPosition({ x: e.clientX, y: e.clientY })
-    }
+    // Check if mobile on mount
+    setIsMobile(window.innerWidth <= 768)
+    
+    if (window.innerWidth <= 768) return
 
-    const updateCursorType = () => {
-      const target = document.elementFromPoint(position.x, position.y)
-      const clickableElements = ["A", "BUTTON", "INPUT", "TEXTAREA", "SELECT", "LABEL"]
-      setIsPointer(
-        target !== null &&
-          (clickableElements.includes(target.tagName) || window.getComputedStyle(target).cursor === "pointer"),
-      )
+    const updatePosition = (e: MouseEvent) => {
+      position.current = { x: e.clientX, y: e.clientY }
+      
+      // Use RAF for smooth updates without causing re-renders
+      if (rafId.current) cancelAnimationFrame(rafId.current)
+      rafId.current = requestAnimationFrame(() => {
+        if (cursorRef.current) {
+          cursorRef.current.style.left = `${position.current.x}px`
+          cursorRef.current.style.top = `${position.current.y}px`
+        }
+        if (cursorOuterRef.current) {
+          cursorOuterRef.current.style.left = `${position.current.x}px`
+          cursorOuterRef.current.style.top = `${position.current.y}px`
+        }
+      })
     }
 
     const handleMouseEnter = () => setIsVisible(true)
     const handleMouseLeave = () => setIsVisible(false)
 
-    window.addEventListener("mousemove", updatePosition)
-    window.addEventListener("mouseover", updateCursorType)
+    window.addEventListener("mousemove", updatePosition, { passive: true })
     document.addEventListener("mouseenter", handleMouseEnter)
     document.addEventListener("mouseleave", handleMouseLeave)
 
     return () => {
       window.removeEventListener("mousemove", updatePosition)
-      window.removeEventListener("mouseover", updateCursorType)
       document.removeEventListener("mouseenter", handleMouseEnter)
       document.removeEventListener("mouseleave", handleMouseLeave)
+      if (rafId.current) cancelAnimationFrame(rafId.current)
     }
-  }, [position])
+  }, [])
 
   // Don't render on mobile devices
-  if (typeof window !== "undefined" && window.innerWidth <= 768) {
+  if (isMobile) {
     return null
   }
 
   return (
     <>
       <div
+        ref={cursorRef}
         className={`fixed pointer-events-none z-50 rounded-full mix-blend-difference ${
           isVisible ? "opacity-100" : "opacity-0"
         } transition-opacity duration-300`}
         style={{
-          left: `${position.x}px`,
-          top: `${position.y}px`,
+          left: 0,
+          top: 0,
           transform: "translate(-50%, -50%)",
         }}
       >
-        <div
-          className={`rounded-full bg-primary transition-all duration-200 ${
-            isPointer ? "w-6 h-6 opacity-70" : "w-4 h-4 opacity-50"
-          }`}
-        ></div>
+        <div className="rounded-full bg-primary w-3 h-3 opacity-60"></div>
       </div>
       <div
-        className={`fixed pointer-events-none z-50 rounded-full border border-primary ${
+        ref={cursorOuterRef}
+        className={`fixed pointer-events-none z-50 rounded-full border border-primary/50 w-6 h-6 ${
           isVisible ? "opacity-100" : "opacity-0"
         } transition-opacity duration-300`}
         style={{
-          left: `${position.x}px`,
-          top: `${position.y}px`,
+          left: 0,
+          top: 0,
           transform: "translate(-50%, -50%)",
-          width: isPointer ? "40px" : "24px",
-          height: isPointer ? "40px" : "24px",
-          transitionProperty: "width, height, opacity",
-          transitionDuration: "0.2s",
         }}
       ></div>
     </>
